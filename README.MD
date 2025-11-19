@@ -233,7 +233,7 @@ select:
 
 ##  Author
 
-**Huỳnh Nhân Quốc** ❤️ Dreamy Indie-stack Developer 
+**Huỳnh Nhân Quốc** ❤️ Lập trình viên Indie-stack mộng mơ 
 
 * KitModule: [@kitmodule](https://github.com/kitmodule)
 * KitWork: [@kitwork](https://github.com/kitwork)
