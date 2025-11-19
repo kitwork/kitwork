@@ -233,12 +233,12 @@ select:
 
 ##  Author
 
-**Huỳnh Nhân Quốc** ❤️ Dreamy Indie-stack Developer
+**Huỳnh Nhân Quốc** ❤️ Dreamy Indie-stack Developer 
 
 * KitModule: [@kitmodule](https://github.com/kitmodule)
 * KitWork: [@kitwork](https://github.com/kitwork)
 
-Released under [MIT License](https://github.com/kitwork/engine/blob/master/LICENSE)
+Released under [MIT License](https://github.com/kitwork/kitwork/blob/master/LICENSE)
 
 **KitWork empowers anyone to automate, develop full-stack applications, and generate native Golang code from a single YAML source, providing a simple, fast, and extensible platform for modern development.**
 
