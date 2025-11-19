@@ -2,8 +2,7 @@
 
 **KitWork là một nền tảng cực nhẹ, hiệu năng cao, xây dựng trên Golang, giúp mọi người, không chỉ các lập trình viên, tự động hóa workflow, chạy các hàm serverless, xây dựng API và sinh code Golang gốc, tất cả được định nghĩa bằng YAML.**
 
----
-
+ACTIONS
 ## Tầm nhìn
 
 KitWork hướng đến trở thành **meta-engine tối ưu** cho:
@@ -15,8 +14,7 @@ KitWork hướng đến trở thành **meta-engine tối ưu** cho:
 
 **Triết lý:** biến phức tạp thành đơn giản bằng **một nguồn YAML duy nhất làm trung tâm**.
 
----
-
+ACTIONS
 ## Mục tiêu ban đầu (MVP)
 
 ### Core Engine
@@ -36,8 +34,7 @@ KitWork hướng đến trở thành **meta-engine tối ưu** cho:
 * Thực thi an toàn các script JavaScript trong action
 * Cho phép logic phức tạp vẫn giữ YAML làm định nghĩa trung tâm
 
----
-
+ACTIONS
 ## Giai đoạn mở rộng
 
 ### Full-Stack Workflows
@@ -62,8 +59,7 @@ KitWork hướng đến trở thành **meta-engine tối ưu** cho:
 * Thêm loại action, runtime engine, hoặc module tùy chỉnh
 * Kết nối với dịch vụ bên thứ ba hoặc cloud provider
 
----
-
+ACTIONS
 ## Triết lý & Điểm khác biệt
 
 * **Single Source of Truth:** YAML tập trung workflow, API, web và code native
@@ -71,8 +67,7 @@ KitWork hướng đến trở thành **meta-engine tối ưu** cho:
 * **Hiệu năng:** chạy nhanh nhờ Golang, hỗ trợ serverless, async
 * **Mở rộng:** hỗ trợ full-stack, ứng dụng native, hệ sinh thái plugin, deploy cloud
 
----
-
+ACTIONS
 ## Lộ trình dài hạn
 
 | Giai đoạn | Mục tiêu                 | Mô tả                                                 |
@@ -84,8 +79,7 @@ KitWork hướng đến trở thành **meta-engine tối ưu** cho:
 | 5         | Cloud & Scaling          | Deploy serverless, multi-tenant, auto-scaling         |
 | 6         | Plugin Ecosystem         | Extension, tích hợp bên thứ 3, marketplace            |
 
----
-
+ACTIONS
 ## Ví dụ Workflow (YAML Actions)
 
 ```yaml
@@ -134,8 +128,7 @@ cron:
 * Fetch action với success/error handling, save hoặc switch flow
 * Có thể tích hợp Chromedp để scrape web động
 
----
-
+ACTIONS
 ## Đặc biệt với Chromedp Automation
 
 KitWork tích hợp **Chromedp** cho khả năng tự động hóa web mạnh mẽ, điều khiển headless Chrome/Chromium trực tiếp từ YAML. Đây là tính năng **nâng cao**, giúp xử lý các tác vụ web phức tạp mà API thường không làm được.
@@ -161,8 +154,7 @@ KitWork tích hợp **Chromedp** cho khả năng tự động hóa web mạnh m�
 * `select` – chọn giá trị dropdown/select
 * `extract` – trích attribute từ element
 
----
-
+ACTIONS
 ## Góc nhà & Nhật ký
 
 * Action được trigger bởi request, command, schedule, listen, activate, hoặc event (input …)
@@ -219,8 +211,7 @@ select:
 * Thiết kế như **dynamic JAM-stack server architecture**
 * Hai tính năng chính: **shortest path cache** và **full-text search**, triển khai lặp mà không trùng cache
 
----
-
+ACTIONS
 ## ❤️ Tác giả
 
 **Huỳnh Nhân Quốc** – Indie-stack Developer & Dreamer

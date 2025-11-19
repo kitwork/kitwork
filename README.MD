@@ -231,9 +231,9 @@ select:
 * Designed as a **dynamic JAM-stack server architecture**
 * Two key features: **shortest path cache** and **full-text search**, implemented iteratively with non-repetitive caching
 
-## ❤️ Author
+##  Author
 
-**Huỳnh Nhân Quốc** – Indie-stack Developer & Dreamer
+**Huỳnh Nhân Quốc** ❤️ Dreamy Indie-stack Developer
 
 * KitModule: [@kitmodule](https://github.com/kitmodule)
 * KitWork: [@kitwork](https://github.com/kitwork)
