@@ -1,0 +1,13 @@
+type: "postgres"         # Database type
+user: "USERNAME"          # Username
+password: "PASSWORD"   # Password (encrypted)
+name: "NAME"             # Database name
+host: "HOST"      # Host address
+port: 5432                # Port
+ssl: "disable"            # SSL mode
+timezone: "Asia/Ho_Chi_Minh"  # Timezone
+timeout: 5                # Connection timeout (seconds)
+max_open: 50              # Max open connections
+max_idle: 10              # Max idle connections
+lifetime: 12              # Connection max lifetime (minutes)
+max_limit: 60              # Max limit query all 
