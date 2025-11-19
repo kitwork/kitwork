@@ -1,0 +1,46 @@
+cron:  # or empty
+   name: "example api"
+   schedules:
+   - "0 2 * * *"
+   - "0 3 * * *"
+
+   actions:
+   - script:
+         name: "Lấy giá vàng qua script"
+         run: ""       # path hoặc inline script
+         as: "products"
+         timeout: 200
+         success:
+         - save:
+               content: "{{ products }}"
+               filename: "hello.json"
+         switch: 
+         error: 
+
+   - foreach:
+         range: "{{ products }}"
+         as: "product"
+         async: true
+         actions:
+         - fetch:
+               name: "Lấy chi tiết"
+               url: ""   # điền URL tương ứng
+               method: "GET"
+               as: "productDetail"
+               timeout: 200
+               success: 
+               switch: 
+               error: 
+
+   - fetch:
+         name: "Lấy giá vàng"
+         url: "https://www.pnj.com.vn/site/gia-vang?r=1709798169672"
+         method: "GET"
+         as: "price"
+         timeout: 200
+         success: 
+         switch: 
+         error: 
+
+   success: 
+   error: 
