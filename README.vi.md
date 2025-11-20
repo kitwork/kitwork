@@ -214,7 +214,7 @@ select:
 
 ##  Tác giả
 
-**Huỳnh Nhân Quốc** ❤️ Nhà phát triển indie-stack mộng mơ
+**Huỳnh Nhân Quốc** ❤️ Lập trình viên Indie-stack mộng mơ 
 
 * KitModule: [@kitmodule](https://github.com/kitmodule)
 * KitWork: [@kitwork](https://github.com/kitwork)

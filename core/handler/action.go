@@ -1,11 +1,9 @@
 package handler
 
 import (
+	"errors"
 	"fmt"
-	"io/ioutil"
 	"log"
-
-	"gopkg.in/yaml.v3"
 )
 
 // Task đại diện cho một action/workflow
@@ -16,31 +14,101 @@ type Task struct {
 	Actions []*Task
 	Success []*Task
 	Error   []*Task
-	Switch  map[string]*Task
-	Result  *TaskResult
 }
 
-type TaskResult struct {
-	Data  interface{}
-	Error error
-	Case  string
+func (t *Task) Fetch(ctx *TaskContext) error {
+
+	if t.Type != "fetch" {
+
+		return errors.New("type is not fetch")
+	}
+
+	return nil
+}
+
+func (t *Task) Script(ctx *TaskContext) error {
+
+	if t.Type != "script" {
+
+		return errors.New("type is not script")
+	}
+	return nil
+}
+
+func (t *Task) Cron(ctx *TaskContext) error {
+
+	if t.Type != "cron" {
+		return errors.New("type is not cron")
+
+	}
+
+	fmt.Println("→ [cron] chạy lịch...")
+
+	return nil
+}
+
+func (t *Task) Run(ctx *TaskContext) (err error) {
+
+	fmt.Printf("→ Running Task: [%s] %s\n", t.Type, t.Name)
+
+	switch t.Type {
+
+	case "script":
+		err = t.Script(ctx)
+
+	case "fetch":
+		err = t.Fetch(ctx)
+
+	case "cron":
+		err = t.Cron(ctx)
+
+	case "foreach":
+		fmt.Println("→ foreach chưa implement")
+		// TODO
+
+	default:
+		err = fmt.Errorf("unknown task type: %s", t.Type)
+
+	}
+
+	if err == nil && len(t.Actions) > 0 {
+		fmt.Println("→ run actions")
+		for _, a := range t.Actions {
+			if err = a.Run(ctx); err != nil {
+				break
+			}
+		}
+	}
+	// Branch control
+	if err != nil && len(t.Error) > 0 {
+		fmt.Println("→ Error xảy ra → chạy error branch")
+		for _, e := range t.Error {
+			e.Run(ctx)
+		}
+	}
+
+	if err == nil && len(t.Success) > 0 {
+		fmt.Println("→ Success → chạy success branch")
+		for _, s := range t.Success {
+			s.Run(ctx)
+		}
+	}
+
+	return
 }
 
 type TaskContext struct {
+	Data   interface{}
+	Result interface{}
 }
 
 // ParseAction parse map[string]interface{} thành Task đệ quy
 func ParseAction(data map[string]interface{}) *Task {
-	task := &Task{
-		Config: make(map[string]interface{}),
-		Switch: make(map[string]*Task),
-	}
+	task := &Task{Config: make(map[string]interface{})}
 
 	for key, val := range data {
-
-		// Nếu value là map -> đây là một action có type
 		if vMap, ok := val.(map[string]interface{}); ok {
-			task.Type = key // type chính
+			task.Type = key
 
 			for k, v := range vMap {
 				switch k {
@@ -51,8 +119,8 @@ func ParseAction(data map[string]interface{}) *Task {
 					}
 
 				case "actions":
-					if actions, ok := v.([]interface{}); ok {
-						for _, a := range actions {
+					if list, ok := v.([]interface{}); ok {
+						for _, a := range list {
 							if aMap, ok := a.(map[string]interface{}); ok {
 								task.Actions = append(task.Actions, ParseAction(aMap))
 							}
@@ -60,8 +128,8 @@ func ParseAction(data map[string]interface{}) *Task {
 					}
 
 				case "success":
-					if items, ok := v.([]interface{}); ok {
-						for _, s := range items {
+					if list, ok := v.([]interface{}); ok {
+						for _, s := range list {
 							if sMap, ok := s.(map[string]interface{}); ok {
 								task.Success = append(task.Success, ParseAction(sMap))
 							}
@@ -69,19 +137,10 @@ func ParseAction(data map[string]interface{}) *Task {
 					}
 
 				case "error":
-					if items, ok := v.([]interface{}); ok {
-						for _, e := range items {
+					if list, ok := v.([]interface{}); ok {
+						for _, e := range list {
 							if eMap, ok := e.(map[string]interface{}); ok {
 								task.Error = append(task.Error, ParseAction(eMap))
-							}
-						}
-					}
-
-				case "switch":
-					if sw, ok := v.(map[string]interface{}); ok {
-						for sk, sv := range sw {
-							if svMap, ok := sv.(map[string]interface{}); ok {
-								task.Switch[sk] = ParseAction(svMap)
 							}
 						}
 					}
@@ -92,7 +151,6 @@ func ParseAction(data map[string]interface{}) *Task {
 			}
 
 		} else {
-			// Nếu không phải map => config bình thường
 			task.Config[key] = val
 		}
 	}
@@ -100,92 +158,15 @@ func ParseAction(data map[string]interface{}) *Task {
 	return task
 }
 
-// ---------------- EXECUTOR ENGINE ----------------
-
-// Run toàn bộ workflow
 func Run() {
-	workflow, err := Readfile("./tasks/example.yaml")
+	workflow, err := Readfile("./services/tasks/example.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	ctx := new(TaskContext)
 	root := ParseAction(workflow)
 
-	fmt.Println("== Workflow Loaded ==")
-	fmt.Printf("Root Type: %s | Name: %s\n", root.Type, root.Name)
-	var ctx = new(TaskContext)
-	// Thông thường type đầu tiên sẽ là "schedule"
-	ExecuteTask(root, ctx)
-}
-
-// ExecuteTask xử lý từng action theo Type
-func ExecuteTask(t *Task, context *TaskContext) {
-	if t == nil {
-		return
-	}
-
-	fmt.Printf("→ Running Task: [%s] %s\n", t.Type, t.Name)
-
-	// Dispatch theo t.Type
-	switch t.Type {
-
-	case "schedule":
-		fmt.Println("Schedule detected — chạy các actions...")
-		for _, action := range t.Actions {
-			ExecuteTask(action, context)
-		}
-
-	case "script":
-		fmt.Println("Thực thi script...")
-		// TODO: chạy file hoặc inline script
-		RunSuccess(t, context)
-
-	case "fetch":
-		fmt.Println("Gọi API fetch...")
-		// TODO: HTTP GET/POST
-		RunSuccess(t, context)
-
-	case "foreach":
-		fmt.Println("Chạy vòng lặp foreach...")
-		// TODO: lặp qua range
-		for _, child := range t.Actions {
-			ExecuteTask(child, context)
-		}
-		RunSuccess(t, context)
-
-	default:
-		fmt.Printf("⚠ Unknown task type: %s\n", t.Type)
-		RunError(t, context)
-	}
-}
-
-// helper: chạy success
-func RunSuccess(t *Task, context *TaskContext) {
-	for _, s := range t.Success {
-		ExecuteTask(s, context)
-	}
-}
-
-// helper: chạy error
-func RunError(t *Task, context *TaskContext) {
-	for _, e := range t.Error {
-		ExecuteTask(e, context)
-	}
-}
-
-func Readfile(path string) (map[string]interface{}, error) {
-	// 1. Đọc file YAML
-	data, err := ioutil.ReadFile(path)
-	if err != nil {
-		return nil, fmt.Errorf("cannot read file: %w", err)
-	}
-
-	// 2. Parse YAML vào map[string]interface{}
-	var workflow map[string]interface{}
-	err = yaml.Unmarshal(data, &workflow)
-	if err != nil {
-		return nil, fmt.Errorf("error parsing YAML: %w", err)
-	}
-
-	return workflow, nil
+	result := root.Run(ctx)
+	fmt.Println(result)
 }
