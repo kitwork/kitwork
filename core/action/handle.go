@@ -1,17 +1,10 @@
 package action
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"time"
 )
-
-type Context struct {
-	Response interface{}
-	Data     interface{}
-	Result   interface{}
-}
 
 // Action đại diện cho 1 action/workflow node
 type Action struct {
@@ -43,33 +36,6 @@ func (t *Action) Cron(ctx *Context) error {
 	return nil
 }
 
-func (t *Action) Log(ctx *Context) error {
-	if t.Type != TypeLog {
-		return errors.New("type is not log")
-	}
-
-	switch t.Kind {
-	case KindValue, KindShort:
-		fmt.Println("→ [log]", t.Config["value"])
-
-	case KindFull, KindList:
-		pretty, err := json.MarshalIndent(t.Config, "", "  ")
-		if err != nil {
-			fmt.Println("→ [log] error marshalling:", err)
-			return nil
-		}
-		fmt.Println("→ [log]:\n", string(pretty))
-
-	case KindUnknown:
-		fmt.Println("→ [log unknown]", t.Config)
-
-	default:
-		fmt.Println("→ [log default]", t.Config)
-	}
-
-	return nil
-}
-
 // ========================
 //  ACTION RUNNER
 // ========================
@@ -91,6 +57,10 @@ func (t *Action) Run(ctx *Context) (err error) {
 
 	case TypeLog:
 		err = t.Log(ctx)
+
+	case TypeParser:
+
+		err = t.Parse(ctx)
 
 	case TypeForeach:
 		fmt.Println("→ foreach chưa implement")

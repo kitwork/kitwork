@@ -5,25 +5,17 @@ cron:  # or empty
    - "0 3 * * *"
 
    actions:
-   - log: "Hello"
-   - script:
-         name: "Lấy giá vàng qua script"
-         run: ""       # path hoặc inline script
-         as: "products"
-         timeout: 200
-         success:
-         - log: "Hello"
-         error: 
-
  
    - fetch:
-         name: "Lấy giá vàng"
-         url: "https://www.pnj.com.vn/site/gia-vang?r=1709798169672"
+         name: "Lấy ip"
+         url: "https://api.ipify.org?format=json"
          method: "GET"
-  
          timeout: 200
          success: 
          error: 
+       
 
    success: 
+     - log: "Kết quả {{ .Result }}"
    error: 
+      - log: "lỗi"

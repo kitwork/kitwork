@@ -20,11 +20,13 @@ const (
 
 	// --- Flow Control ---
 	TypeForeach Type = "foreach"
-	TypeIf      Type = "if"
-	TypeSwitch  Type = "switch"
-	TypeLoop    Type = "loop"
-	TypeReturn  Type = "return"
-	TypeWait    Type = "wait"
+
+	TypeSwitch   Type = "switch"
+	TypeLoop     Type = "loop"
+	TypeReturn   Type = "return"
+	TypeWait     Type = "wait"
+	TypeRoutines Type = "routines"
+	// TypeIf      Type = "if"
 
 	// --- Logging / Debug ---
 	TypeLog Type = "log"
@@ -44,6 +46,9 @@ const (
 	// --- Custom / Fallback ---
 	TypeCustom Type = "custom"
 	TypeUnknow Type = "unknow"
+
+	// --- Parse /  ---
+	TypeParser Type = "parse"
 )
 
 // TypeParse converts a string to a Type enum
@@ -64,8 +69,10 @@ func TypeParse(s string) (Type, error) {
 		return TypeCommand, nil
 	case "foreach":
 		return TypeForeach, nil
-	case "if":
-		return TypeIf, nil
+	case "routines":
+		return TypeRoutines, nil
+	// case "if":
+	// 	return TypeIf, nil
 	case "switch":
 		return TypeSwitch, nil
 	case "cron":
@@ -90,6 +97,9 @@ func TypeParse(s string) (Type, error) {
 		return TypeChromedp, nil
 	case "custom":
 		return TypeCustom, nil
+
+	case "parse":
+		return TypeParser, nil
 	default:
 		return "", fmt.Errorf("invalid action type: %s", s)
 	}
