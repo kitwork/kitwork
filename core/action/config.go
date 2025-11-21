@@ -17,7 +17,7 @@ type Config struct {
 
 func (c *Config) Run() error {
 
-	ctx := new(Context)
+	ctx := NewContext()
 
 	for _, file := range c.Files {
 
@@ -34,7 +34,7 @@ func (c *Config) Run() error {
 		}
 
 		// 2. parse workflow
-		root := Parse(workflow)
+		root := Parsing(workflow)
 		if root == nil {
 			return fmt.Errorf("cannot parse workflow: %s", file)
 		}
