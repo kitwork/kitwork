@@ -1,7 +1,9 @@
 package main
 
-import "github.com/kitwork/kitwork/core/handler"
+import (
+	"github.com/kitwork/kitwork/core/action"
+)
 
 func main() {
-	handler.Run()
+	action.Source("./services/tasks").Run()
 }
