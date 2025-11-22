@@ -71,11 +71,6 @@ func (t *Action) Run(ctx *Context) (err error) {
 		}
 	}
 
-	if t.As != "" {
-		err = ctx.addPipe(t.As, func() interface{} { return ctx.Result })
-		fmt.Println(t.As, err)
-	}
-
 	// 4. Nếu thành công → chạy Success branch
 	if err == nil && len(t.Success) > 0 {
 		fmt.Println("→ Success → chạy success branch")

@@ -36,10 +36,6 @@ func Parsing(data map[string]interface{}) *Action {
 						action.Name = s
 					}
 
-				case "as":
-					if s, ok := vv.(string); ok {
-						action.As = s
-					}
 				case "actions", "action":
 					action.Actions = parseList(vv)
 				case "success":

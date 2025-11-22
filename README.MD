@@ -77,41 +77,41 @@ KitWork aims to become the **ultimate meta-engine** for:
 ## Example Workflow (YAML Actions)
 
 ```yaml
-cron: 
+cron:  # or empty
   name: "example api"
   schedules:
     - "0 2 * * *"
     - "0 3 * * *"
 
   actions:
-    - script:
-        name: "Fetch gold prices"
-        run: ""       # path or inline script
-        as: "products"
-        timeout: 200
-        success:
-          - save:
-              content: "{{ products }}"
-              filename: "hello.json"
-
-    - foreach:
-        range: "{{ products }}"
-        as: "product"
-        async: true
-        actions:
-          - fetch:
-              name: "Fetch product details"
-              url: ""  
-              method: "GET"
-              as: "productDetail"
-              timeout: 200
 
     - fetch:
-        name: "Daily gold price"
-        url: "https://www.pnj.com.vn/site/gia-vang?r=1709798169672"
+        name: "Fetch BTC Price"
+        url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
         method: "GET"
-        as: "price"
-        timeout: 200
+        as: btc
+        timeout: 1000
+        success:
+          - fetch:
+              name: "Send to Telegram"
+              url: "https://api.telegram.org/bot{{ .Key.Telegram }}/sendMessage"
+              method: "POST"
+              as: "telegram"
+              headers:
+                content-type: "application/json"
+              body:
+                chat_id: "-5077473015"
+                text: "Kitwork sent a Telegram message: {{ btc.price }}"
+              success:
+              error:
+
+        error:
+
+  success:
+    - log: "Sent successfully {{ btc | json }}"
+  error:
+    - log: "An error has occurred"
+
 ```
 
 **Highlights:**
@@ -238,8 +238,10 @@ select:
 * KitModule: [@kitmodule](https://github.com/kitmodule)
 * KitWork: [@kitwork](https://github.com/kitwork)
 
-Released under [MIT License](https://github.com/kitwork/kitwork/blob/master/LICENSE)
+Released under Apache 2.0 License – [LICENSE](https://github.com/kitwork/kitwork/blob/master/LICENSE)  
 
 **KitWork empowers anyone to automate, develop full-stack applications, and generate native Golang code from a single YAML source, providing a simple, fast, and extensible platform for modern development.**
 
 > I didn’t create a new programming language. I created a new way of programming that allows humans and AI to work together seamlessly.
+
+Support development: https://github.com/sponsors/huynhnhanquoc

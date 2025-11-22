@@ -9,6 +9,8 @@ import (
 )
 
 type Request struct {
+	Name   string            `action:"name"`
+	As     string            `action:"as"`
 	URL    string            `action:"url,required,fallback"`       // URL endpoint
 	Method string            `action:"method" default:"GET"`        // GET / POST / PUT...
 	Header map[string]string `action:"header"`                      // request headers
