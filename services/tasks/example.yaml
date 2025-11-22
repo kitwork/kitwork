@@ -7,15 +7,28 @@ cron:  # or empty
    actions:
  
    - fetch:
-         name: "Lấy ip"
-         url: "https://api.ipify.org?format=json"
+         name: "Lấy giá BTC"
+         url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
          method: "GET"
-         timeout: 200
+         as: product
+         timeout: 1000 
          success: 
+          - fetch:
+              name: "Gửi đến Telegram"
+              url: "https://api.telegram.org/bot{{ .Key.Telegram }}/sendMessage"
+              method: "POST"
+              headers: 
+                 content-type: "application/json"
+              body: 
+                chat_id: "-5077473015"
+                text: "Kitwork send Telegram {{ product.price }}"
+              success: 
+              error: 
+
          error: 
        
 
    success: 
-     - log: "Kết quả {{ .Result }}"
+     - log: "Gửi thành công"
    error: 
-      - log: "lỗi"
+      - log: "Đã có lỗi xảy ra"

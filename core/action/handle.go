@@ -6,9 +6,10 @@ import (
 	"time"
 )
 
-// Action đại diện cho 1 action/workflow node
+// Action / work đại diện cho 1 action/workflow node
 type Action struct {
 	Name    string
+	As      string
 	Type    Type
 	Kind    Kind // short, full, value, list, switch
 	Config  map[string]interface{}
@@ -16,15 +17,6 @@ type Action struct {
 	Success []*Action // nếu OK
 	Error   []*Action // nếu lỗi
 	Timeout time.Duration
-}
-
-func (t *Action) Script(ctx *Context) error {
-	if t.Type != TypeScript {
-		return errors.New("type is not script")
-	}
-
-	fmt.Println("→ [script] chạy script ...")
-	return nil
 }
 
 func (t *Action) Cron(ctx *Context) error {
@@ -79,12 +71,9 @@ func (t *Action) Run(ctx *Context) (err error) {
 		}
 	}
 
-	// 3. Nếu lỗi → chạy Error branch
-	if err != nil && len(t.Error) > 0 {
-		fmt.Println("→ Error xảy ra → chạy error branch")
-		for _, e := range t.Error {
-			e.Run(ctx)
-		}
+	if t.As != "" {
+		err = ctx.addPipe(t.As, func() interface{} { return ctx.Result })
+		fmt.Println(t.As, err)
 	}
 
 	// 4. Nếu thành công → chạy Success branch
@@ -92,6 +81,14 @@ func (t *Action) Run(ctx *Context) (err error) {
 		fmt.Println("→ Success → chạy success branch")
 		for _, s := range t.Success {
 			s.Run(ctx)
+		}
+	}
+
+	// 3. Nếu lỗi → chạy Error branch
+	if err != nil && len(t.Error) > 0 {
+		fmt.Println("→ Error xảy ra → chạy error branch")
+		for _, e := range t.Error {
+			e.Run(ctx)
 		}
 	}
 

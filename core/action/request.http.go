@@ -10,7 +10,13 @@ import (
 )
 
 func (r *Request) HTTP(ctx *Context) error {
-	req, err := http.NewRequest(r.Method, r.URL, nil)
+
+	body, err := r.body(ctx)
+	if err != nil {
+		return err
+	}
+
+	req, err := http.NewRequest(r.Method, r.URL, body)
 	if err != nil {
 		return err
 	}
@@ -24,12 +30,14 @@ func (r *Request) HTTP(ctx *Context) error {
 	if err != nil {
 		return err
 	}
+	defer resp.Body.Close()
 
-	ctx.Result, err = r.parseResponse(resp)
+	result, err := r.parseResponse(resp)
 	if err != nil {
 		return err
 	}
-	return err
+	ctx.Result = result
+	return nil
 }
 
 func (r *Request) parseResponse(resp *http.Response) (interface{}, error) {

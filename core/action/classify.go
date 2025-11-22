@@ -131,6 +131,10 @@ func (t *Action) classify(ctx *Context, out interface{}) error {
 				}
 			}
 			f.SetInt(n)
+		case reflect.Interface:
+			if ok {
+				f.Set(reflect.ValueOf(v))
+			}
 		}
 
 		if required && (f.Kind() == reflect.String && f.String() == "") {
