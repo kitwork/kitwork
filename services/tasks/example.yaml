@@ -1,34 +1,34 @@
-cron:  # or empty
-   name: "example api"
-   schedules:
-   - "0 2 * * *"
-   - "0 3 * * *"
+# cron:  # or empty
+#    name: "example api"
+#    schedules:
+#    - "0 2 * * *"
+#    - "0 3 * * *"
 
-   actions:
+#    actions:
  
-   - fetch:
-         name: "Lấy giá BTC"
-         url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
-         method: "GET"
-         as: product
-         timeout: 1000 
-         success: 
-          - fetch:
-              name: "Gửi đến Telegram"
-              url: "https://api.telegram.org/bot{{ .Key.Telegram }}/sendMessage"
-              method: "POST"
-              headers: 
-                 content-type: "application/json"
-              body: 
-                chat_id: "-5077473015"
-                text: "Kitwork send Telegram {{ product.price }}"
-              success: 
-              error: 
+#    - fetch:
+#          name: "Lấy giá BTC"
+#          url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+#          method: "GET"
+#          as: product
+#          timeout: 1000 
+#          success: 
+#           - fetch:
+#               name: "Gửi đến Telegram"
+#               url: "https://api.telegram.org/bot{{ .Key.Telegram }}/sendMessage"
+#               method: "POST"
+#               headers: 
+#                  content-type: "application/json"
+#               body: 
+#                 chat_id: "-5077473015"
+#                 text: "Kitwork send Telegram {{ product.price }}"
+#               success: 
+#               error: 
 
-         error: 
-       
+#          error: 
 
-   success: 
-     - log: "Gửi thành công"
-   error: 
-      - log: "Đã có lỗi xảy ra"
+
+#    success: 
+#      - log: "Gửi thành công"
+#    error: 
+#       - log: "Đã có lỗi xảy ra"

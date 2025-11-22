@@ -1,0 +1,35 @@
+cron:  # or empty
+   name: "example api"
+   schedules:
+   - "0 2 * * *"
+   - "0 3 * * *"
+
+   actions:
+ 
+   - fetch:
+         name: "Lấy giá BTC"
+         url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+         method: "GET"
+         as: btc
+         timeout: 1000 
+         success: 
+          - fetch:
+              name: "Gửi đến Telegram"
+              url: "https://api.telegram.org/bot{{ .Key.Telegram }}/sendMessage"
+              method: "POST"
+              as: "telegram"
+              headers: 
+                 content-type: "application/json"
+              body: 
+                chat_id: "-5077473015"
+                text: "Kitwork send Telegram {{ btc.price }}"
+              success: 
+              error: 
+
+         error: 
+
+
+   success: 
+     - log: "Gửi thành công {{ btc | json }}"
+   error: 
+      - log: "Đã có lỗi xảy ra"
