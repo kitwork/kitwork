@@ -1,59 +1,311 @@
-# KitWork – Engine for a New Programming Perspective
+# KitWork – Serverless Engine & YAML-Native Workflows Stack powered by Golang
 
-**KitWork is more than a tool. It’s a vision. It’s the embodiment of a decade of thought, experimentation, and dreams about how programming can evolve.**
+**KitWork is an ultra-lightweight, high-performance platform built on Golang, designed to help everyone, not just developers, automate workflows, run serverless functions, build APIs, and generate native Golang code, all defined using YAML.**
 
-It’s lightweight, ultra-fast, and designed to transform the way humans and machines interact, allowing anyone—developers or not—to automate workflows, deploy serverless functions, build APIs, and manage systems using **simple, readable text**.
+## Vision
 
-## 🌌 The Origin
+KitWork aims to become the **ultimate meta-engine** for:
 
-The journey of KitWork started in quiet nights, alone in a small room, pondering the essence of programming. After 10 years of exploration, I finally saw a clear path: a new perspective on how code, humans, and machines could coexist.
+* **Automation:** executing workflows, serverless functions, and action scheduling
+* **Full-Stack Development:** backend APIs, web frontends, mobile apps, native applications
+* **Code Generation:** producing native Golang code from YAML, reducing boilerplate
+* **Accessibility:** simple enough for everyone, replacing complex tools like n8n or cumbersome frameworks
 
-KitWork is my manifesto. It’s proof that independence in technology is possible without formal degrees—it’s built purely from insight, curiosity, and persistence.
+**Philosophy:** transform complexity into simplicity using a **single YAML source as the central hub**.
 
-## 🚀 Vision
+## Initial Goals (MVP)
 
-* **Simplicity First:** Complex systems become readable, maintainable text.
-* **Unified Development:** Front-end, back-end, and infrastructure converge.
-* **Human-Machine Harmony:** Instructions readable by both humans and machines.
-* **DIY Serverless & Microservices:** Deploy fast, self-hosted, independent of SaaS.
-* **No-Code / Low-Code Evolution:** Transform ideas into functional systems effortlessly.
+### Core Engine
 
-Inspired by **GitHub Actions, n8n, serverless functions, and Docker**, KitWork empowers **human creativity and AI collaboration**, turning logic into executable reality.
+* Execute **YAML-defined workflows** and actions
+* Support actions: `fetch / http`, `script`, `cmd / command`, `for`, `sendmail`, `save`, `check`, `return`, `chrome / chromedp`
+* Cron scheduler for periodic actions
+* Manage secrets, proxies, and file watching automatically
 
-> “Even the most complex ideas can become simple. The most intricate systems can be readable, maintainable, and scalable.”
+### Serverless Runtime
 
-**GitHub:** [kitwork/kitwork](https://github.com/kitwork/kitwork)
+* Run functions triggered by requests or cron schedules
+* Provide a simple API endpoint to invoke actions externally
 
-## ✨ Philosophy
+### JS Sandbox Runtime (v8go)
 
-1. **Simplicity over Complexity:** Every system, every service, should be understandable at a glance.
-2. **Accessibility:** Anyone should be able to write workflows without learning a full programming language.
-3. **Automation as Poetry:** Systems operate automatically, intelligently, and elegantly.
-4. **Open Mindset:** Open-source is not just about code—it’s about sharing knowledge, fostering innovation, and building a better world together.
+* Safely execute JavaScript scripts within actions
+* Enable complex logic while keeping YAML as the central definition
 
-## 🛠 What KitWork Enables
+## Expansion Phase
 
-* Define and run workflows in **plain YAML**.
-* Deploy **serverless functions** easily without Node.js.
-* Manage **microservices** in a few lines of text.
-* Build **back-end systems** in hours, not days.
-* Transform **dynamic JavaScript or algorithmic tasks** into readable templates.
-* Self-host services **independently**, avoiding SaaS lock-in.
+### Full-Stack Workflows
 
-## 🌱 The Future
+* Backend APIs fully defined in YAML
+* Web frontend generated from YAML templates
+* Dynamic UI generation from YAML
 
-Imagine waking up to fully automated systems, building a backend in a day, or generating an entire workflow without complex coding. KitWork is a step towards that world: where **ideas become executable reality**, and humans and machines understand each other naturally.
+### No-Code / Low-Code Platform
 
-It’s a starting point for a **new programming language**—a language of simplicity, clarity, and intention. A language where your thoughts, structured carefully, become systems the world can use.
+* Visual GUI editor for workflows, APIs, and actions
+* Drag & drop components with standard YAML export
 
-## ❤️ A Personal Note
+### Advanced Code Generation
 
-KitWork carries my dreams, struggles, and passion. It’s named after me, because **“work” is both workflow and framework**, and it embodies the labor of love that is software creation.
+* YAML → Golang native code (backend actions, APIs, CLI)
+* YAML → HTML/CSS/JS (web apps)
+* Extendable for mobile runtime
 
-It’s open-source because sharing ideas is the fastest way to change the world. I’ve simplified the most complex systems into readable text so that anyone can **build, maintain, and understand** them effortlessly.
+### Plugin & Extensions
 
-This is just the beginning. The journey is long, but the path is clear.
+* Add custom action types, runtime engines, or modules
+* Connect to third-party services or cloud providers
 
-## ⚡ Inspiration
+## Philosophy & Key Differentiators
 
-From **GitHub Actions** → **Serverless Functions** → **Dynamic JS without Node.js** → **Self-hosted Microservices**, KitWork emerged as a natural evolution: **simplifying complexity, unifying workflows, and empowering human creativity.**
+* **Single Source of Truth:** YAML centralizes workflow, API, web, and native code
+* **Simplicity First:** minimalistic design, easy to learn
+* **Performance:** powered by Golang for fast actions, serverless functions, and APIs
+* **Extensibility:** supports full-stack expansion, native apps, plugin ecosystem, and cloud deployment
+
+## Long-Term Roadmap
+
+| Phase | Goal                     | Description                                           |
+| ----- | ------------------------ | ----------------------------------------------------- |
+| 1     | Core Engine & Serverless | Actions, cron, JS sandbox, secrets, file watcher      |
+| 2     | Full-Stack & API         | Backend API, dynamic web templates, action routing    |
+| 3     | No-Code / Low-Code       | GUI workflow editor, drag & drop, YAML export         |
+| 4     | Native Code Generation   | YAML → Golang → binary apps, web apps, mobile runtime |
+| 5     | Cloud & Scaling          | Serverless deployment, multi-tenant, auto-scaling     |
+| 6     | Plugin Ecosystem         | Extensions, 3rd-party integrations, marketplace       |
+
+## Example Workflow (YAML Actions)
+
+```yaml
+cron:  # or empty
+   name: "example api"
+   schedules:
+    - daily: 15:00
+
+   work:
+   - fetch:
+         name: "Lấy giá BTC"
+         url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+         method: "GET"
+         as: btc
+         timeout: 1000 
+         success: 
+          - fetch:
+              name: "Gửi đến Telegram"
+              url: "https://api.telegram.org/bot{{ .Key.Telegram }}/sendMessage"
+              method: "POST"
+              as: "telegram"
+              headers: 
+                 content-type: "application/json"
+              body: 
+                chat_id: "-5077473015"
+                text: "Kitwork send Telegram {{ btc.price }}"
+              success: 
+              error: 
+
+         error: 
+
+
+   success: 
+     - log: "Gửi thành công {{ btc | json }}"
+   error: 
+      - log: "Đã có lỗi xảy ra"
+
+```
+
+**Highlights:**
+
+* Multiple cron schedules for the same workflow
+* Script actions with inline or file-based logic
+* Asynchronous `foreach` over items
+* Fetch actions with success/error handling, saving, or switching flows
+* Chromedp integration possible for dynamic web scraping
+
+## Special with Chromedp Automation
+
+KitWork comes with a **powerful web automation capability** thanks to **Chromedp**, allowing you to control a headless Chrome/Chromium browser directly from YAML. This is an **advanced feature** that enables automation of complex web tasks that standard APIs cannot handle.
+
+### Key Capabilities
+
+* **Navigate & Interact:** open websites, click buttons, fill forms, scroll pages
+* **Data Extraction:** extract data from the DOM, innerText, HTML, or JSON from dynamic pages
+* **JavaScript Execution:** run custom scripts directly on the page
+* **Screenshots & PDF:** capture screenshots or export web pages as PDF
+* **Workflow Integration:** seamlessly combine with other actions (`fetch`, `script`, `save`) in cron jobs or async `foreach` loops
+* **Web Automation Beyond APIs:** Chromedp allows scraping and interacting with dynamic pages
+
+### Available Chromedp Steps
+
+The steps (`steps`) available in YAML workflows when using Chromedp:
+
+* `wait` – wait for a selector to appear on the page
+* `click` – click a specific element
+* `fill` – input a value into an input or textarea
+* `evaluate` – run JavaScript on the page and store the result
+* `screenshot` – capture a screenshot of the whole page or a specific selector
+* `navigate` – navigate to a new URL
+* `scroll` – scroll the page to a position or selector
+* `select` – choose a value in a dropdown or select element
+* `extract` – extract an attribute value from an element
+
+### Why It’s Special
+
+* **Web Automation Beyond APIs:** scrape data, perform UI testing, or interact with dynamic pages that APIs do not support
+* **Full YAML Integration:** all automation steps are defined in YAML without writing Go code directly
+* **Async & Scalable:** combine with cron and `foreach` to handle large-scale web tasks in parallel
+* **Reusable & Maintainable:** YAML workflows can be shared, version-controlled, and easily edited without requiring professional developers
+
+
+## Corner & Diary
+
+* An action is triggered by request, command, schedule, listen, activate, or event (input …)
+* An action only returns a result of **success** or **error** (like in Golang) and handles the cases accordingly
+* Routers handle only essential HTTP methods: **get**, **post**, **put**, **delete**, and are **guarded**
+* Alias path mapping: `{id}` → param (`:id` in GoFiber, path does not support `:`), `{$}` → `*`
+
+```yaml
+/router
+  /api/  
+    /{$}
+      get.yaml # API page not found
+      post.yaml
+      update.yaml  
+      delete.yaml
+
+    guard.yaml
+    /post 
+      /{id}
+      get.yaml
+      post.yaml
+      update.yaml  
+      delete.yaml
+
+    /account 
+      guard.yaml
+      get.yaml
+      post.yaml
+      update.yaml  
+      delete.yaml
+
+  /dashboard
+    /{$}
+      get.yaml # dashboard page not found
+
+    /post 
+        /{id}
+        get.yaml # can use check action inside YAML file
+
+    guard.yaml
+    get.yaml # cms.html  
+
+  /{$}
+      get.yaml # page not found
+
+  get.yaml # index.html
+```
+
+* `return` exits the action immediately
+* Database operations are simple: select, create, update, delete
+
+```yaml
+select: 
+  db: "postgres"
+  from: "table"
+  where: ...
+  offset: 0
+  limit: 50
+```
+
+* Use embedded commands for security (fixed, immutable). Core can also read files dynamically for flexibility
+* Scripts default to **JavaScript**, executed by **v8go**
+* Variable expansion (`var`) may be supported in the future
+* Mobile apps compiled from Golang, supporting native, OpenGL/Vulkan, HTML (including WASM or Reactive integration)
+* Fast, self-hosted load balancing / proxy deployment
+* YAML is extendable, e.g., table format
+* Use **Golang templates** when compiling a future system from YAML to binary, with or without templates
+* Build a system that can run **without a database**, using YAML as a data source, optionally inheriting database queries
+* Core manages an **entire distributed machine**, with nodes identified by node ID
+* Future plans include **UI automation**, similar to n8n drag-and-drop, supporting workflows or code paths via interface
+* Game development is not the main focus, but minimal support may exist
+* Designed as a **dynamic JAM-stack server architecture**
+* Two key features: **shortest path cache** and **full-text search**, implemented iteratively with non-repetitive caching
+
+# Story
+
+**I’m building an engine that changes the way we look at programming: a roadmap, a philosophy, and a tool for simplicity, clarity, and creativity.**
+
+*Huỳnh Nhân Quốc – Nov 20, 2025*
+
+---
+
+### Insomnia and Finding the Path
+
+Lately, I have been losing sleep because, for the first time in ten years, I can see my own path clearly. Last night, in a tiny nine-square-meter room, I listened to the wind outside, my mind wandering among clouds chasing dreams. In ten years, I have never seen programming so clearly. I realized I am standing at the edge of a turning point—a place where the world of programming can be seen differently.
+
+> “Programming is not only about solving problems. It is about understanding, dreaming, and shaping a world with your own hands.”
+
+---
+
+### Roadmap = README
+
+Today, I finished it. **KitWork** is just a README, a roadmap, but for me, it is the map of my life. It contains the essence of my thoughts, my exploration, and the dreams of a programmer chasing freedom and creativity. It brings me closer to the dreams I have pursued for years: technological independence and what I call my *“flowering dream.”*
+
+I do not need a degree to prove anything; this README itself is proof of my journey. It captures knowledge, curiosity, and the heartbeat of a programmer chasing the edges of madness.
+
+> “A simple text file can hold the life and vision of a programmer.”
+
+---
+
+### Inspired by Modern Tools
+
+KitWork draws inspiration from **GitHub Actions, n8n, serverless functions, and Docker**. It reminds us that programmers often create solutions for clients, but when we solve problems for ourselves, everything else begins to untangle naturally.
+
+I see a future where programming happens in the simplest files. There is no boundary between front-end and back-end, no separation between programming languages and machine languages. KitWork transforms the most complex systems into something readable, manageable, and deployable by anyone. Every action, every device, every chip can implement it—from the simplest task to the most complex microservices.
+
+> “The simplest tools often reveal the deepest truths.”
+
+---
+
+### Programming from Simplicity
+
+KitWork does not replace programming languages. It turns no-code and low-code ideas into a fully functional system. It allows people to design workflows, build backends like neatly arranged strings, and replace outdated methods. Logic becomes text that both humans and machines can understand instantly.
+
+The idea came from a simple question: how to make a JavaScript file dynamic without Node.js. From GitHub Actions to serverless functions, I asked why not implement it in **Golang**—fast, efficient, perfect for microservices. I wanted algorithms and dynamic JS files self-contained, easy to read, easy to deploy.
+
+> “Imagine waking up to systems orchestrating themselves, a backend built in hours, a workflow running without manual intervention.”
+
+---
+
+### Open Source and Vision
+
+The name **KitWork** carries meaning: *work* in workflows, *work* in frameworks, and *work* sounds like my own name. It allows shipping projects independently, self-hosting services without relying on SaaS, and managing complex operations like load balancing in a few simple files.
+
+I open-sourced it knowing someone may copy it, but that is a good thing. Open mindset is what improves the world, not just source code. KitWork simplifies complexity, makes systems readable and maintainable, and lays the groundwork for a new programming language: one of simplicity, clarity, and intentionality.
+
+> “Simplicity is not the absence of complexity. It is the art of making the complex understandable.”
+
+---
+
+### The Awakening
+
+KitWork is the first reality of the programming journey I want to follow. It is a tool to create a future where coding is simple, transparent, free, and full of inspiration. Even the most complex systems can become readable, maintainable, and deployable by anyone. It allows humans and machines to communicate seamlessly.
+
+I can imagine mornings when systems operate automatically. I can see backends built in hours, landing pages in a few hours, entire workflows running seamlessly. This is the future I see—a world where programmers focus on ideas, not boilerplate, where logic becomes readable, and creativity flows without friction.
+
+> “Even the most complex ideas can become simple. The most intricate systems can be readable and maintainable.”
+
+
+##  Author
+
+**Huỳnh Nhân Quốc** ❤️ Dreamy Indie-stack Developer 
+
+* KitModule: [@kitmodule](https://github.com/kitmodule)
+* KitWork: [@kitwork](https://github.com/kitwork)
+
+Released under Apache 2.0 License – [LICENSE](https://github.com/kitwork/kitwork/blob/master/LICENSE)  
+
+**KitWork empowers anyone to automate, develop full-stack applications, and generate native Golang code from a single YAML source, providing a simple, fast, and extensible platform for modern development.**
+
+> I didn’t create a new programming language. I created a new way of programming that allows humans and AI to work together seamlessly.
+
+Support development: https://github.com/sponsors/huynhnhanquoc

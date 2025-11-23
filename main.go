@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/kitwork/kitwork/core/action"
+	"github.com/kitwork/work"
 )
 
 func main() {
-	action.Source("./services/tasks").Run()
+	work.Source("./services/tasks").Run()
 }

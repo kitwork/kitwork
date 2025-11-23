@@ -1,11 +1,12 @@
 cron:  # or empty
    name: "example api"
    schedules:
-   - "0 2 * * *"
-   - "0 3 * * *"
+    - daily: 15:00
 
-   actions:
- 
+
+   work:
+   - script: () => a + b
+
    - fetch:
          name: "Lấy giá BTC"
          url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
