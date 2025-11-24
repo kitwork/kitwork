@@ -1,0 +1,33 @@
+# Binaries
+/bin/
+/build/
+/dist/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Dependency directories
+/vendor/
+/go.sum
+/go.mod
+
+# IDEs / Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.DS_Store
+
+# Logs
+*.log
+logs/
+tmp/
+
+# KitWork specific
+/secret/*.work
