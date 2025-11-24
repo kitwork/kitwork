@@ -5,5 +5,9 @@ import (
 )
 
 func main() {
-	work.Source("./services/tasks").Run()
+	err := work.Source("./services/tasks").Run()
+	if err != nil {
+		panic(err)
+	}
+	select {}
 }

@@ -1,12 +1,9 @@
 cron:  # or empty
-   name: "example api"
-   schedules:
-    - daily: 15:00
-
-
-   work:
-   - script: () => a + b
-
+   name: "get BTC to Telegram"
+   schedules: 
+    - every: 60s
+    
+   works:
    - fetch:
          name: "Lấy giá BTC"
          url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
