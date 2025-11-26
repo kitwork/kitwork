@@ -5,9 +5,14 @@ import (
 )
 
 func main() {
-	err := work.Source("./services/tasks").Run()
-	if err != nil {
+	if err := work.New().
+		Secret().
+		Schedule().
+		Router().
+		Run(); err != nil {
 		panic(err)
 	}
+
 	select {}
+	// select {}
 }
