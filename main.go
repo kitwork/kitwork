@@ -5,14 +5,13 @@ import (
 )
 
 func main() {
-	if err := work.New().
+	err := work.New().
 		Secret().
 		Schedule().
 		Router().
-		Run(); err != nil {
+		Run()
+	if err != nil {
 		panic(err)
 	}
 
-	select {}
-	// select {}
 }
