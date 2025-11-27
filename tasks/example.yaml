@@ -1,7 +1,8 @@
 name: "get BTC to Telegram"
 daily: 
-  - 01:00"
-  - 13:00
+  - "01:00"
+  - "13:00
+  
 work:
   - fetch:
       name: "Lấy giá BTC"
