@@ -20,9 +20,9 @@ KitWork is a high-performance platform for developers and teams who want to auto
 
 **Open Source**: Fully transparent, extendable, and community-friendly
 
-## Example Workflow (`.work`)
+## Example Workflow (`.work` = yaml)
 
-```work
+```yaml
 name: "get BTC to Telegram"
 schedules:
   - every: 5s
