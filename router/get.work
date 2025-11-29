@@ -1,2 +1,30 @@
-name: home
-version: 1
+name: api
+version: 2
+
+work:
+  - fetch:
+      name: "Lấy giá BTC"
+      url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+      method: "GET"
+      as: btc
+      timeout: 1000
+      error:
+        - log: Lỗi khi lấy BTC
+        
+success: 
+  - return: 
+      html: 
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            <div>{{ btc.price | dollar }}</div>
+           
+            <div>open source by <a target="_blank" href="https://github.com/kitwork/kitwork">Kitwork</a></div>
+        </body>
+        </html>
+     

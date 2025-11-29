@@ -1,2 +1,4 @@
 name: api
 version: 2
+success: 
+  - return: "{{ param.id }}"
