@@ -1,8 +1,8 @@
 name: "get BTC to Telegram"
-daily: 
-  - "01:00"
-  - "13:00
-  
+daily:
+  - 01:00
+  - 13:00
+
 work:
   - fetch:
       name: "Lấy giá BTC"
@@ -10,23 +10,25 @@ work:
       method: "GET"
       as: btc
       timeout: 1000
-      success:
-        - fetch:
-            name: "Gửi đến Telegram"
-            url: "https://api.telegram.org/bot{{ secret.telegram.key }}/sendMessage"
-            method: "POST"
-            as: "telegram"
-            headers:
-              content-type: "application/json"
-            body:
-              chat_id: "-5077473015"
-              text: "Kitwork BOT:\n - BTC/USDT: {{ btc.price | dollar  }}"
-            success:
-            error:
-
       error:
+        - log: Lỗi khi lấy BTC
 
-success:
-  - log: "Gửi thành công BTC/USDT đến Telegram"
+  - log: BTC/USDT Đang có giá {{ btc.price | dollar }}
+  - fetch:
+      name: "Gửi đến Telegram"
+      url: "https://api.telegram.org/bot{{ secret.telegram.key }}/sendMessage"
+      method: "POST"
+      as: "telegram"
+      headers:
+        content-type: "application/json"
+      body:
+        chat_id: "-5077473015"
+        text: "Kitwork BOT1:\n - BTC/USDT: {{ btc.price | dollar  }}"
+      error:
+        - log: Lỗi khi gửi telegram
+      success:
+
 error:
   - log: "Đã có lỗi xảy ra"
+success:
+  - log: "Gửi thành công BTC/USDT đến Telegram"
