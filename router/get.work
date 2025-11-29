@@ -1,5 +1,5 @@
 name: api
-version: 2
+version: 1
 
 work:
   - fetch:
@@ -13,7 +13,7 @@ work:
         
 success: 
   - return: 
-      html: 
+      html: |
         <!DOCTYPE html>
         <html lang="en">
         <head>
