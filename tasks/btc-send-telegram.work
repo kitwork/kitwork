@@ -1,6 +1,6 @@
 name: "get BTC to Telegram"
 schedules:
-  - every: 5s
+  - every: 20s
 
 work:
   - fetch:
@@ -30,4 +30,4 @@ work:
 error:
   - log: "Đã có lỗi xảy ra"
 success:
-  - log: "Gửi thành công BTC/USDT đến Telegram"
+  - log: "Lấy BTC/USDT thành công"

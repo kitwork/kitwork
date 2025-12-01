@@ -1,0 +1,22 @@
+name: api
+version: 1
+work:
+  - fetch:
+      name: "Lấy giá BTC"
+      url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+      method: "GET"
+      as: btc
+      timeout: 1000
+
+success: 
+  - return: 
+      json:
+        success: true
+        data: 
+          price: "{{ btc.price | dollar }}"
+
+error: 
+  - return: 
+      json:
+        success: false
+        data: null

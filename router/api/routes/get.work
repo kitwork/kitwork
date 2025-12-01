@@ -1,0 +1,12 @@
+name: api
+version: 1
+
+
+success: 
+  - return: "{{ routes | json }}"
+
+error: 
+  - return: 
+      json:
+        success: false
+        data: null

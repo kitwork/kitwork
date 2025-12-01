@@ -1,0 +1,35 @@
+name: api
+version: 1
+work:
+  - fetch:
+      name: "Lấy giá BTC"
+      url: "https://edge-api.pnj.io/ecom-frontend/v1/get-gold-price?zone=11"
+      method: "GET"
+      as: pnj
+      timeout: 1000
+
+  - mapping:
+      from: pnj.data
+      as: list
+      item: item #nếu có thì lấy theo chỗ này và mặc định là item
+      index: idx
+      transform:
+        buy: "{{ item.giaban }}"
+        sell: "{{ item.giamua }}"
+        code: "{{ item.masp }}"
+        name: "{{ item.tensp }}"
+        
+success: 
+  - return: 
+      json:
+        success: true
+        data: "{{ list | json }}"
+        open-source: https://github.com/kitwork/kitwork
+        location: "{{ pnj.chinhanh }}"
+        update: "{{ pnj.updateDate }}"
+
+error: 
+  - return: 
+      json:
+        success: false
+        data: null
