@@ -3,19 +3,30 @@ version: 1
 work:
   - sql:
       as: user
-
       select: 
         - "email" 
         - "username"
       from: user
       where:
-        id: "{{ param.id }}"
+        is_active: true
+      offset: 0
+      limit: 30
+
+  - sql:
+      as: total
+      count: "*"
+      from: user
+      where:
+        is_active: true
+
+      
  
 success: 
   - return: 
       json:
         success: true
-        data: "{{ user | json  }}"
+        data: "{{ user | json }}"
+        total: "{{ total }}"
 
 error: 
   - return: 

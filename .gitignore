@@ -31,3 +31,4 @@ tmp/
 
 # KitWork specific
 /secret/*.work
+/database/*.work
