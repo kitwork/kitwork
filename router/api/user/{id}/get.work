@@ -1,4 +1,19 @@
 name: api
 version: 2
+work: 
+  sql: 
+    as: user
+    select: all
+    from: user
+    where: 
+      age: "> 18"
+      status: active
+    offset: 0
+    limit: 30
+    having: 
+    group:
+    order: name ASC
+
+
 success: 
-  - return: "{{ param.id }}"
+  - return: "{{ user | json }}"
