@@ -1,0 +1,29 @@
+name: "get BTC to Telegram"
+schedules:
+  - every: 5s
+
+work:
+  - fetch:
+      name: "Get Substack"
+      url: "https://huynhnhanquoc.substack.com/api/v1/archive?sort=new&search=&offset=0&limit=12"
+      method: "GET"
+      as: posts
+      timeout: 1000
+
+  - for:
+      as: "substack"
+      item: "post"
+      index: "index"
+      from: posts
+      async: 
+        -  fetch:
+            name: "Get Substack"
+            url: "https://huynhnhanquoc.substack.com/api/v1/posts/{{ post.slug }}"
+            method: "GET"
+            timeout: 1000
+
+success:
+  - log: "Lấy  {{ substack | json  }}"
+error:
+  - log: "Đã có lỗi xảy ra"
+

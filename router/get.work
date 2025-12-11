@@ -6,12 +6,13 @@ work:
       name: "Lấy giá BTC"
       url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
       method: "GET"
-      as: btc
+      as: $btc
       timeout: 1000
       error:
         - log: Lỗi khi lấy BTC
         
 success: 
   - return: 
-      page: "page/home.tmpl"
+        page: "page/index.tmpl"
+     
      

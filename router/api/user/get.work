@@ -12,21 +12,12 @@ work:
       offset: 0
       limit: 30
 
-  - sql:
-      as: total
-      count: "*"
-      from: user
-      where:
-        is_active: true
-
-      
  
 success: 
   - return: 
       json:
         success: true
         data: "{{ user | json }}"
-        total: "{{ total }}"
 
 error: 
   - return: 

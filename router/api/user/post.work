@@ -1,0 +1,23 @@
+name: api
+version: 1
+work:
+  - sql:
+      as: $effect
+      insert: user
+      values:
+        username: "{{ $body.username }}"
+        email: "{{ input.email }}"
+        is_active: true
+      returning: all
+          
+ 
+success: 
+  - return: 
+      json:
+        success: true
+        data: "{{ $effect | json }}"
+
+error: 
+  - return: 
+      json:
+        success: false

@@ -1,0 +1,33 @@
+name: "get BTC to Telegram"
+schedules:
+  - every: 20s
+
+work:
+  - fetch:
+      name: "Lấy giá BTC"
+      url: "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+      method: "GET"
+      as: btc
+      timeout: 1000
+      error:
+        - log: Lỗi khi lấy BTC
+
+  - log: BTC/USDT Đang có giá {{ btc.price | dollar }}
+  # - fetch:
+  #     name: "Gửi đến Telegram"
+  #     url: "https://api.telegram.org/bot{{ secret.telegram.key }}/sendMessage" #nhớ thêm secret key telegram của bạn nhé
+  #     method: "POST"
+  #     as: "telegram"
+  #     headers:
+  #       content-type: "application/json"
+  #     body:
+  #       chat_id: "-5077473015" #Đổi lại chat id của bạn
+  #       text: "Kitwork BOT1:\n - BTC/USDT: {{ btc.price | dollar  }}"
+  #     error:
+  #       - log: Lỗi khi gửi telegram
+  #     success:
+
+error:
+  - log: "Đã có lỗi xảy ra"
+success:
+  - log: "Lấy BTC/USDT thành công"

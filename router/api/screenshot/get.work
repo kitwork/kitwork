@@ -1,0 +1,15 @@
+name: api
+version: 1
+
+work:
+  - screenshot:
+      as: $shot
+      url: "{{  $queries.url }}"
+      device: "{{  $queries.device }}"
+        
+success: 
+  - return: 
+        png: $shot
+     
+error: 
+  - return: lỗi
