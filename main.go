@@ -1,21 +1,12 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/kitwork/work"
+	"github.com/kitwork/engine"
 )
 
 func main() {
-	err := work.New().
-		Secret().
-		Database().
-		Schedule().
-		Router().
-		Run()
+	err := engine.Run("config.kitwork.yaml")
 	if err != nil {
-		fmt.Println(err)
 		panic(err)
 	}
-
 }

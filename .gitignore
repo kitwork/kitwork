@@ -30,5 +30,5 @@ logs/
 tmp/
 
 # KitWork specific
-/secret/*.work
-/database/*.work
+/engine/
+config.kitkork.yml
