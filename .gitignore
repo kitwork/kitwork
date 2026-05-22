@@ -31,4 +31,4 @@ tmp/
 
 # KitWork specific
 /engine/
-config.kitkork.yml
+config.kitwork.yml

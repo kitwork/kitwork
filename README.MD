@@ -1,15 +1,18 @@
 # 🚀 Kitwork — The Industrial-Grade Logic Operating System
 
+> **Logic is the soul of machines. Emotion creates civilization.**
+
 **An ultra-lightweight, sovereign logic execution engine powered by Go. Run APIs, cron schedules, templates, and background tasks on a custom stack-based bytecode virtual machine with nanosecond precision.**
 
 ```javascript
-const { router, log, database, go } = kitwork();
+const { router, database } = kitwork();
+const db = database.connection({ /* postgres config */ });
 
 // Fluid Routing & High-Frequency Logic
 router.get("/api/v1/orders/:id")
     .cache("30s")
     .handle((req, res) => {
-        const order = database.orders.find(req.params("id"));
+        const order = db.where(o => o.id == req.params("id")).first();
         if (!order) return res.status(404).json({ error: "Order not found" });
         return res.json({ success: true, data: order });
     });
@@ -42,7 +45,7 @@ Kitwork is engineered for **Nanosecond-Precision Sovereign Execution**. We optim
     kitwork().schedule()
         .daily("01:00")
         .every("10s")
-        .handle(() => database.logs.where(l => l.age > "30d").destroy());
+        .handle(() => db.where(l => l.age > "30d").remove());
     ```
 *   **Zero Dependencies**: Packaged into a single, compact executable. No Node.js, no Docker, no external runtimes required.
 
@@ -61,21 +64,23 @@ go run .
 ```
 
 ### 2. File Structure
-Define your routes and system logic under the `tenants/` directory:
+Define your routes and system logic under the `public/` directory:
 ```text
 kitwork/
 ├── config.kitwork.yaml      # Global configuration file (port, sources)
 ├── main.go                  # Engine entry bootstrap
-└── tenants/
+└── public/
     └── test/
         └── localhost/
-            └── app.kitwork.js  # VM router and script logic
+            ├── app.kitwork.js  # VM router and script logic
+            ├── assets/         # Static CSS and JIT scripts
+            └── views/          # HTML templates and views
 ```
 
 ### 3. Global Config (`config.kitwork.yaml`)
 ```yaml
 port: 8080
-source: "tenants"
+source: "public"
 ```
 
 ### 4. Write Your First Route (`app.kitwork.js`)
