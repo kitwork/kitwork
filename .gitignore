@@ -16,6 +16,7 @@
 /vendor/
 /go.sum
 /go.mod
+.static/
 
 # IDEs / Editors
 .idea/

@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	err := engine.Run("config.kitwork.yaml")
+	err := engine.Run("config.kitwork.yml")
 	if err != nil {
 		panic(err)
 	}

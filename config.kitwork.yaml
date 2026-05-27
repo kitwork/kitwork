@@ -1,3 +1,3 @@
 port: 8080
-source: "public"
+root: "public"
 
