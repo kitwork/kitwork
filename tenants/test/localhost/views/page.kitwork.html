@@ -1,442 +1,627 @@
-<img src="/test-vietqr-svg" alt="">
-
-<section class="pb-20 md:pb-32 relative max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Text Column -->
-        <div>
-            <div
-                class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[11px] py-2 px-5 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
-                <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
-                Bytecode Engine
-            </div>
-
-            <h1
-                class="font-black text-5xl md:text-[6rem] leading-[1.1] tracking-tighter text-gray-900 dark:text-white mb-2">
-                Kitwork<span
-                    class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent ml-1">.</span>
-            </h1>
-            <p
-                class="text-3xl md:text-5xl font-black bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent mb-10 py-2">
-                Logic is the runtime
-            </p>
-
-            <p class="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-12">
-                Built on Go, the <strong class="font-mono">engine</strong> compiles a familiar <strong
-                    class="text-brand">Javascript-like</strong>
-                <strong
-                    class="font-mono text-brand bg-brand/5 px-1.5 py-0.5 rounded font-bold border border-brand/10">blueprint</strong>
-                into <strong class="text-brand">bytecode</strong>
-                and
-                executes it on a
-                stack based virtual machine, allowing <strong>logic</strong> to run beyond
-                interpretation or abstraction, in its own
-                form.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="/users"
-                    class="bg-gradient-to-r from-brand to-brand-light text-tokyo-bg font-black text-sm uppercase py-4 px-10 rounded hover:scale-105 hover:outline hover:outline-2 hover:outline-brand hover:outline-offset-4 transition-all duration-300 tracking-widest text-center">
-                    Users Demo
-                </a>
-                <a href="/test-query" target="_blank"
-                    class="border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white font-black text-sm uppercase py-4 px-10 rounded bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 tracking-widest text-center">
-                    Test Database
-                </a>
-            </div>
-        </div>
-
-        <!-- Code Column -->
-        <div
-            class="bg-[#242442] border-2 border-transparent hover:border-brand/60 rounded-2xl p-6 md:p-8 relative overflow-hidden w-full lg:mt-16 transition-all duration-500 group">
-            <div
-                class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#1a1a32] border-b border-[#2d2d52] px-5 py-3">
-                <div class="flex gap-2">
-                    <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+<!-- Hero Section -->
+<div class="relative overflow-hidden pt-16 pb-12 sm:pt-24 sm:pb-16 lg:pt-32 lg:pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+            <!-- Left Hero Content -->
+            <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-sm font-semibold tracking-wide uppercase mb-6">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
+                    </span>
+                    Kitwork v1.0.0 Sovereign VM
                 </div>
-                <div class="flex items-center gap-2">
-                    <span
-                        class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
-                    <span
-                        class="font-mono text-[10px] font-bold text-[#a9b1d6] uppercase tracking-widest">app.kitwork.js</span>
+                <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 dark:text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-none">
+                    The Industrial-Grade
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-brand to-violet-500">Logic Operating System</span>
+                </h1>
+                <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 sm:mt-8 leading-relaxed font-normal">
+                    An ultra-lightweight, sovereign logic execution engine powered by Go. Run APIs, cron schedules, templates, and background tasks on a custom stack-based bytecode virtual machine with nanosecond precision.
+                </p>
+                <div class="mt-10 sm:flex sm:justify-center lg:justify-start gap-4">
+                    <a href="#playground" class="flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-bold rounded-xl text-white bg-gradient-to-r from-brand to-brand-light shadow-lg hover:shadow-brand/30 transition-all duration-300 transform hover:-translate-y-0.5">
+                        ⚡ Try Interactive Playground
+                    </a>
+                    <a href="#features" class="flex items-center justify-center px-8 py-3.5 border border-slate-200 dark:border-slate-800 text-base font-semibold rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300">
+                        Explore Features
+                    </a>
                 </div>
             </div>
-
-            <!-- Formatter immune code block -->
-            <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-[#a9b1d6]">
-                <span class="text-[#f7768e]">const</span> { <span class="text-[#c0caf5]">router, log, database,
-                    go</span> } = <span class="text-[#7aa2f7]">kitwork</span>();<br>
-                <br>
-                <span class="text-[#f7768e]">const</span> <span class="text-[#c0caf5]">db</span> = database.<span
-                    class="text-[#7aa2f7]">connect</span>({ <span class="text-[#c0caf5]">type</span>: <span
-                    class="text-[#9ece6a]">"postgres"</span> });<br>
-                <br>
-                <span class="text-[#c0caf5]">router</span>.<span class="text-[#bb9af7]">get</span>(<span
-                    class="text-[#9ece6a]">"/users/:id?"</span>).<span class="text-[#bb9af7]">handle</span>((<span
-                    class="text-[#e0af68]">req, res</span>) => {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#565f89] italic">// 1. Database query via ORM</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#f7768e]">const</span> <span
-                    class="text-[#c0caf5]">users</span> = <span class="text-[#c0caf5]">db.user</span>.<span
-                    class="text-[#bb9af7]">limit</span>(<span class="text-[#ff9e64]">5</span>).<span
-                    class="text-[#bb9af7]">list</span>();<br>
-                <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#565f89] italic">// 2. Spin up parallel Goroutine</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#7aa2f7]">go</span>(() => {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#c0caf5]">log</span>.<span
-                    class="text-[#bb9af7]">Print</span>(<span class="text-[#9ece6a]">"⚡ Isolated background
-                    sync"</span>);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;});<br>
-                <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#f7768e]">return</span> <span
-                    class="text-[#e0af68]">res</span>.<span class="text-[#bb9af7]">json</span>({ <span
-                    class="text-[#c0caf5]">data: users</span> });<br>
-                });
-            </div>
-        </div>
-
-    </div>
-    </div>
-</section>
-
-<!-- Stats Banner -->
-<section
-    class="border-y border-gray-200 dark:border-gray-800 bg-gray-50/40 dark:bg-gray-800/40 backdrop-blur relative z-20">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
-            <div class="p-4 group cursor-default">
-                <div
-                    class="font-black text-5xl text-brand mb-2 group-hover:scale-110 transition-transform duration-300">
-                    14.1M</div>
-                <div class="text-gray-900 dark:text-white font-bold uppercase tracking-wider text-sm mb-1">Ops/sec</div>
-                <div class="text-gray-500 dark:text-gray-400 text-xs">Raw Bytecode Velocity</div>
-            </div>
-            <div class="p-4 group pt-8 md:pt-4 cursor-default">
-                <div
-                    class="font-black text-5xl text-brand mb-2 group-hover:scale-110 transition-transform duration-300">
-                    70ns</div>
-                <div class="text-gray-900 dark:text-white font-bold uppercase tracking-wider text-sm mb-1">Logic Latency
-                </div>
-                <div class="text-gray-500 dark:text-gray-400 text-xs">Pure Execution Precision</div>
-            </div>
-            <div class="p-4 group pt-8 md:pt-4 cursor-default">
-                <div
-                    class="font-black text-5xl text-brand mb-2 group-hover:scale-110 transition-transform duration-300">
-                    230ns</div>
-                <div class="text-gray-900 dark:text-white font-bold uppercase tracking-wider text-sm mb-1">Query
-                    Construction</div>
-                <div class="text-gray-500 dark:text-gray-400 text-xs">Zero-GC Architecture</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section
-    class="py-32 bg-white dark:bg-[#0f172a] relative border-t border-gray-200 dark:border-gray-800 overflow-hidden">
-    <!-- Ambient glowing light -->
-    <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1/2 bg-brand/5 blur-[120px] rounded-full pointer-events-none">
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <!-- Module 01: Blazing Fast -->
-            <div
-                class="group relative bg-gray-50/40 dark:bg-gray-800/40 backdrop-blur border border-gray-200 dark:border-gray-700 p-8 rounded-2xl hover:bg-gray-50/80 dark:hover:bg-gray-800 transition-all duration-500 hover:-translate-y-4 hover:scale-[1.02] hover:border-brand/60 overflow-hidden">
-                <div
-                    class="absolute top-0 left-0 w-0 h-1 bg-gradient-to-r from-transparent via-brand to-brand-light group-hover:w-full transition-all duration-700">
-                </div>
-                <!-- Watermark -->
-                <div
-                    class="absolute -right-6 -bottom-10 font-black text-[8rem] leading-none text-tokyo-border dark:text-white/5 opacity-30 group-hover:text-brand/5 group-hover:scale-110 transition-all duration-700 select-none">
-                    01</div>
-
-                <div class="relative z-10">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-brand font-black text-lg mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:border-brand/40">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+            
+            <!-- Right Code Terminal Preview -->
+            <div class="mt-12 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6">
+                <div class="relative mx-auto w-full rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-[#090c15]">
+                    <!-- Terminal Header -->
+                    <div class="bg-[#0f1322] px-4 py-3 flex items-center justify-between border-b border-slate-800/40">
+                        <div class="flex space-x-2">
+                            <span class="h-3 w-3 rounded-full bg-red-500"></span>
+                            <span class="h-3 w-3 rounded-full bg-yellow-500"></span>
+                            <span class="h-3 w-3 rounded-full bg-green-500"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500 select-none">app.kitwork.js</span>
+                        <div class="w-12"></div>
                     </div>
-                    <h3
-                        class="font-black text-xl mb-4 tracking-wide text-gray-900 dark:text-white group-hover:text-brand-light transition-colors duration-300">
-                        Blazing Fast</h3>
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-[0.9rem]">Engineered on a <strong
-                            class="font-bold text-gray-900 dark:text-white">high performance Go architecture</strong>.
-                        Bypasses
-                        traditional server bottlenecks to effortlessly serve <strong
-                            class="font-bold text-brand">millions of concurrent requests</strong> with near zero
-                        latency.</p>
-                </div>
-            </div>
-
-            <!-- Module 02: JS Blueprint -->
-            <div class="group relative bg-gray-50/40 dark:bg-gray-800/40 backdrop-blur border border-gray-200 dark:border-gray-700 p-8 rounded-2xl hover:bg-gray-50/80 dark:hover:bg-gray-800 transition-all duration-500 hover:-translate-y-4 hover:scale-[1.02] hover:border-brand/60 overflow-hidden"
-                style="transition-delay: 50ms;">
-                <div
-                    class="absolute top-0 left-0 w-0 h-1 bg-gradient-to-r from-transparent via-brand to-brand-light group-hover:w-full transition-all duration-700">
-                </div>
-                <!-- Watermark -->
-                <div
-                    class="absolute -right-6 -bottom-10 font-black text-[8rem] leading-none text-tokyo-border dark:text-white/5 opacity-30 group-hover:text-brand/5 group-hover:scale-110 transition-all duration-700 select-none">
-                    02</div>
-
-                <div class="relative z-10">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-brand font-black text-lg mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:border-brand/40">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m14-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                        </svg>
+                    <!-- Terminal Body -->
+                    <div class="p-6 font-mono text-sm leading-relaxed overflow-x-auto text-slate-300">
+                        <span class="text-purple-400">import</span> { router, database } <span class="text-purple-400">from</span> <span class="text-green-400">"kitwork"</span>
+                        <br><br>
+                        <span class="text-blue-400">const</span> db = database.<span class="text-yellow-400">connection</span>()
+                        <br><br>
+                        <span class="text-slate-500">// 1. Zero-Allocation REST API & Router Caching</span>
+                        <br>
+                        router.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/api/v1/orders/:id"</span>)
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">cache</span>(<span class="text-green-400">"30s"</span>)
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">handle</span>((req, res) =&gt; {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">const</span> order = db.<span class="text-yellow-400">table</span>(<span class="text-green-400">"orders"</span>).<span class="text-yellow-400">find</span>(req.<span class="text-yellow-400">params</span>(<span class="text-green-400">"id"</span>))
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">if</span> (!order) <span class="text-purple-400">return</span> res.<span class="text-yellow-400">status</span>(<span class="text-red-400">404</span>).<span class="text-yellow-400">json</span>({ error: <span class="text-green-400">"Not found"</span> })
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> res.<span class="text-yellow-400">json</span>({ success: <span class="text-blue-400">true</span>, data: order })
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;})
                     </div>
-                    <h3
-                        class="font-black text-xl mb-4 tracking-wide text-gray-900 dark:text-white group-hover:text-brand-light transition-colors duration-300">
-                        <code
-                            class="font-mono font-black text-white bg-[#ff3e3e] px-2 py-0.5 rounded-sm shadow-[0_2px_10px_rgba(255,62,62,0.3)] border border-[#ff3e3e]">JS Blueprint</code>
-                    </h3>
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-[0.9rem]">Leave the bloated <strong
-                            class="font-bold text-gray-900 dark:text-white">V8 engine</strong> behind. Kitwork doesn't
-                        execute pure JS.
-                        It uses a familiar <strong class="font-bold text-gray-900 dark:text-white">blueprint
-                            dialect</strong> compiled
-                        straight to our bare metal <strong class="font-bold text-gray-900 dark:text-white">Stack
-                            VM</strong>, achieving
-                        <strong class="font-bold text-brand">14.1M ops per sec</strong>.
-                    </p>
                 </div>
-            </div>
-
-            <!-- Module 03: True Goroutines -->
-            <div class="group relative bg-gray-50/40 dark:bg-gray-800/40 backdrop-blur border border-gray-200 dark:border-gray-700 p-8 rounded-2xl hover:bg-gray-50/80 dark:hover:bg-gray-800 transition-all duration-500 hover:-translate-y-4 hover:scale-[1.02] hover:border-brand/60 overflow-hidden"
-                style="transition-delay: 100ms;">
-                <div
-                    class="absolute top-0 left-0 w-0 h-1 bg-gradient-to-r from-transparent via-brand to-brand-light group-hover:w-full transition-all duration-700">
-                </div>
-                <!-- Watermark -->
-                <div
-                    class="absolute -right-6 -bottom-10 font-black text-[8rem] leading-none text-tokyo-border dark:text-white/5 opacity-30 group-hover:text-brand/5 group-hover:scale-110 transition-all duration-700 select-none">
-                    03</div>
-
-                <div class="relative z-10">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-brand font-black text-lg mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:border-brand/40">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19 11l-7 4-7-4m14-4l-7 4-7-4m14 8l-7 4-7-4" />
-                        </svg>
-                    </div>
-                    <h3
-                        class="font-black text-xl mb-4 tracking-wide text-gray-900 dark:text-white group-hover:text-brand-light transition-colors duration-300">
-                        True Goroutines</h3>
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-[0.9rem]">Shatter the <strong
-                            class="font-bold text-gray-900 dark:text-white">NodeJS Event Loop</strong> illusion. Use our
-                        native <code
-                            class="font-mono text-brand bg-brand/5 px-1.5 py-0.5 rounded font-bold border border-brand/10">go()</code>
-                        function inside JavaScript to spawn <strong class="font-bold text-brand">truly
-                            parallel</strong>, isolated background tasks instantly.</p>
-                </div>
-            </div>
-
-            <!-- Module 04: Integrated Database -->
-            <div class="group relative bg-gray-50/40 dark:bg-gray-800/40 backdrop-blur border border-gray-200 dark:border-gray-700 p-8 rounded-2xl hover:bg-gray-50/80 dark:hover:bg-gray-800 transition-all duration-500 hover:-translate-y-4 hover:scale-[1.02] hover:border-brand/60 overflow-hidden"
-                style="transition-delay: 150ms;">
-                <div
-                    class="absolute top-0 left-0 w-0 h-1 bg-gradient-to-r from-transparent via-brand to-brand-light group-hover:w-full transition-all duration-700">
-                </div>
-                <!-- Watermark -->
-                <div
-                    class="absolute -right-6 -bottom-10 font-black text-[8rem] leading-none text-tokyo-border dark:text-white/5 opacity-30 group-hover:text-brand/5 group-hover:scale-110 transition-all duration-700 select-none">
-                    04</div>
-
-                <div class="relative z-10">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-brand font-black text-lg mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:border-brand/40">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                        </svg>
-                    </div>
-                    <h3
-                        class="font-black text-xl mb-4 tracking-wide text-gray-900 dark:text-white group-hover:text-brand-light transition-colors duration-300">
-                        Integrated Database</h3>
-                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-[0.9rem]">No messy configurations or
-                        bulky external
-                        drivers. Kitwork <strong class="font-bold text-brand">natively binds</strong> to your SQL
-                        database, offering a fluent, <strong class="font-bold text-gray-900 dark:text-white">zero
-                            latency Query
-                            Builder</strong> right out of the box.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- The Energy Economy Section -->
-<section
-    class="py-32 bg-gray-50/30 dark:bg-gray-900/30 relative border-t border-gray-200 dark:border-gray-800 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Text -->
-        <div>
-            <div
-                class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[11px] py-2 px-5 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
-                <span class="w-2 h-2 rounded-full bg-brand"></span>
-                The Energy Economy
-            </div>
-            <h2 class="font-black text-4xl md:text-5xl leading-tight mb-6 text-gray-900 dark:text-white">
-                Your code pays for<br>its own existence.
-            </h2>
-            <p class="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mb-8">
-                Spam is solved by physics. Kitwork tracks the <strong class="text-gray-900 dark:text-white">Energy
-                    Cost</strong> of
-                every operation within the VM. When logic exceeds its allocated energy budget, it is throttled or
-                halted. Efficiency is the currency of the engine.
-            </p>
-            <ul class="space-y-4">
-                <li class="flex items-center gap-4 text-gray-500 dark:text-gray-400">
-                    <span
-                        class="w-8 h-8 rounded-full bg-brand/10 text-brand flex items-center justify-center font-bold text-sm outline outline-1 outline-brand outline-offset-2">C</span>
-                    <span><strong class="text-gray-900 dark:text-white">CPU (Calc)</strong> | Thinking is cheap.</span>
-                </li>
-                <li class="flex items-center gap-4 text-gray-500 dark:text-gray-400">
-                    <span
-                        class="w-8 h-8 rounded-full bg-brand/10 text-brand flex items-center justify-center font-bold text-sm outline outline-1 outline-brand outline-offset-2">R</span>
-                    <span><strong class="text-gray-900 dark:text-white">RAM (Alloc)</strong> | Memory is finite
-                        space.</span>
-                </li>
-                <li class="flex items-center gap-4 text-gray-500 dark:text-gray-400">
-                    <span
-                        class="w-8 h-8 rounded-full bg-brand/10 text-brand flex items-center justify-center font-bold text-sm outline outline-1 outline-brand outline-offset-2">N</span>
-                    <span><strong class="text-gray-900 dark:text-white">Network</strong> | Communication is
-                        expensive.</span>
-                </li>
-            </ul>
-        </div>
-        <!-- Graphic / Code -->
-        <div
-            class="bg-[#242442] border-2 border-transparent hover:border-brand/60 rounded-2xl p-6 md:p-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-500">
-            <div
-                class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#1a1a32] border-b border-[#2d2d52] px-5 py-3">
-                <div class="flex gap-2">
-                    <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span
-                        class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
-                    <span
-                        class="font-mono text-[10px] font-bold text-[#a9b1d6] uppercase tracking-widest">scheduler.js</span>
-                </div>
-            </div>
-            <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-[#a9b1d6]">
-                <span class="text-[#f7768e]">const</span> { <span class="text-[#c0caf5]">scheduler</span> } = <span
-                    class="text-[#7aa2f7]">kitwork</span>();<br>
-                <br>
-                <span class="text-[#565f89] italic">// Natural Language Scheduling</span><br>
-                <span class="text-[#c0caf5]">scheduler</span><br>
-                &nbsp;&nbsp;.<span class="text-[#bb9af7]">daily</span>(<span class="text-[#9ece6a]">"01:00"</span>)<br>
-                &nbsp;&nbsp;.<span class="text-[#bb9af7]">every</span>(<span class="text-[#9ece6a]">"10s"</span>)<br>
-                &nbsp;&nbsp;.<span class="text-[#bb9af7]">handle</span>(() => {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#565f89] italic">// Logic executed within energy
-                    bounds</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#c0caf5]">database.logs</span>.<span
-                    class="text-[#bb9af7]">where</span>(<span class="text-[#e0af68]">l</span> => <span
-                    class="text-[#e0af68]">l</span>.<span class="text-[#c0caf5]">age</span> > <span
-                    class="text-[#9ece6a]">"30d"</span>).<span class="text-[#bb9af7]">destroy</span>();<br>
-                &nbsp;&nbsp;});
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Final CTA / Fast Path -->
-<section
-    class="py-32 bg-white dark:bg-[#0f172a] relative border-t border-gray-200 dark:border-gray-800 overflow-hidden text-center">
-    <div class="max-w-3xl mx-auto px-6 relative z-10">
-        <h2 class="font-black text-4xl md:text-5xl leading-tight mb-6 text-gray-900 dark:text-white">
-            Get into the flow in <br><span class="text-brand">under 60 seconds.</span>
-        </h2>
-        <p class="text-gray-500 text-lg mb-10">
-            No massive node_modules. No complex build steps. Just clone and run.
+<!-- Performance Benchmarks Section -->
+<div class="py-12 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-100 dark:border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+            <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">🚀 High-Performance Benchmarks</h2>
+            <p class="mt-3 text-lg text-slate-500 dark:text-slate-400">Verified performance metrics under k6 load tests executing concurrently on a single local node.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-5 sm:grid-cols-4">
+            <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-900 text-center shadow-sm">
+                <span class="block text-4xl font-extrabold text-brand tracking-tight">12,700+</span>
+                <span class="block mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Requests / Sec (RPS)</span>
+            </div>
+            <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-900 text-center shadow-sm">
+                <span class="block text-4xl font-extrabold text-purple-500 tracking-tight">90 µs</span>
+                <span class="block mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Avg Latency (Diagnostics)</span>
+            </div>
+            <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-900 text-center shadow-sm">
+                <span class="block text-4xl font-extrabold text-indigo-500 tracking-tight">1.16 ms</span>
+                <span class="block mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Median Latency (Mixed)</span>
+            </div>
+            <div class="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-900 text-center shadow-sm">
+                <span class="block text-4xl font-extrabold text-green-500 tracking-tight">100.0%</span>
+                <span class="block mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Success Rate (HTTP 200)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div id="features" class="py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">💎 Key Capabilities</h2>
+            <p class="mt-4 text-lg text-slate-500 dark:text-slate-400">Everything you need to build next-generation sovereign microservices and high-frequency backend interfaces.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Feature 1 -->
+            <div class="relative bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="h-12 w-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center text-2xl mb-6">⚡</div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Zero-Copy Routing</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">High-velocity trie-based router matching endpoints natively in Go, bypassing Javascript overhead entirely for path resolution.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="relative bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="h-12 w-12 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-2xl mb-6">🗄️</div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Fluent Zero-Allocation ORM</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Direct SQL builder executing database queries in nanoseconds—nearly 20x faster than traditional heavyweight ORMs.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="relative bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="h-12 w-12 rounded-xl bg-red-500/10 text-brand flex items-center justify-center text-2xl mb-6">🎨</div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Smart VietQR Generator</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Compliance checked VietQR SVG generator featuring Napas routing verification, bank logo integration, and custom contrast ratios.</p>
+            </div>
+            <!-- Feature 4 -->
+            <div class="relative bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="h-12 w-12 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center text-2xl mb-6">📸</div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Headless Web Capture</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Spawn and orchestrate headless chromium instances natively on-the-fly to capture screenshots or fetch rendered DOM structures.</p>
+            </div>
+            <!-- Feature 5 -->
+            <div class="relative bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="h-12 w-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center text-2xl mb-6">🔋</div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Concurrency Wrapper</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Spawn non-blocking background threads utilizing Go's lightweight scheduler via the standard Javascript `go()` directive.</p>
+            </div>
+            <!-- Feature 6 -->
+            <div class="relative bg-white dark:bg-slate-950 p-8 rounded-2xl border border-slate-100 dark:border-slate-900 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="h-12 w-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-2xl mb-6">🔒</div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Thread-Safe Router Caching</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Features custom file locks (`sync.RWMutex`) to guarantee static cache stability and prevent content truncation under heavy load.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Interactive Playground / Dashboard -->
+<div id="playground" class="py-16 bg-slate-50 dark:bg-slate-900/10 border-t border-slate-100 dark:border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">⚡ Interactive Developer Playground</h2>
+            <p class="mt-3 text-lg text-slate-500 dark:text-slate-400">Trigger real endpoints on this local Kitwork node and view source codes side-by-side with real-time response previews.</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex space-x-2 border-b border-slate-200 dark:border-slate-800 pb-4 overflow-x-auto scrollbar-none mb-8">
+            <button class="tab-btn px-5 py-2.5 rounded-xl font-bold border transition-all duration-200 active-tab" onclick="switchTab('routing')">⚡ Routing & Cache</button>
+            <button class="tab-btn px-5 py-2.5 rounded-xl font-bold border transition-all duration-200" onclick="switchTab('orm')">🗄️ Fluent ORM</button>
+            <button class="tab-btn px-5 py-2.5 rounded-xl font-bold border transition-all duration-200" onclick="switchTab('qrcode')">🎨 Smart VietQR</button>
+            <button class="tab-btn px-5 py-2.5 rounded-xl font-bold border transition-all duration-200" onclick="switchTab('screenshot')">📸 Web Capture</button>
+            <button class="tab-btn px-5 py-2.5 rounded-xl font-bold border transition-all duration-200" onclick="switchTab('concurrency')">🔋 Concurrency</button>
+        </div>
+
+        <!-- Playground Workspace -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <!-- Left interactive panel (Col: 7) -->
+            <div class="lg:col-span-7 bg-white dark:bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-900 shadow-sm flex flex-col justify-between">
+                
+                <!-- 1. ROUTING & CACHING TAB -->
+                <div id="routing" class="tab-content active">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">⚡ Routing and Static Caching</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">Test how the trie-based router compiles JavaScript VM context and maps cache results efficiently.</p>
+                        
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Select Endpoint</label>
+                            <select id="routing-endpoint" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium outline-none focus:border-brand transition-all">
+                                <option value="/api/hello">Diagnostics API (/api/hello)</option>
+                                <option value="/api/cached">Cached Response (/api/cached - 10s)</option>
+                                <option value="/api/gold">External API Proxy Cache (/api/gold - 5s)</option>
+                            </select>
+                        </div>
+                        <button class="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand to-brand-light shadow-md hover:shadow-brand/20 transition-all duration-200" onclick="testRouting()">Send API Request</button>
+                    </div>
+                    
+                    <div class="mt-6 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900/30 min-h-[140px] flex items-center justify-center p-4 relative overflow-hidden" id="routing-preview">
+                        <span class="text-slate-400 text-sm font-medium">Click "Send API Request" to see output</span>
+                    </div>
+                </div>
+
+                <!-- 2. ORM DATABASE TAB -->
+                <div id="orm" class="tab-content">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">🗄️ Fluent Zero-Allocation ORM</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">Run lightning-fast queries against the PostgreSQL database using a fluent, allocation-free syntax builder.</p>
+                        
+                        <button class="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand to-brand-light shadow-md hover:shadow-brand/20 transition-all duration-200" onclick="testORM()">Execute ORM Queries</button>
+                    </div>
+                    
+                    <div class="mt-6 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900/30 min-h-[140px] flex items-center justify-center p-4 relative overflow-hidden" id="orm-preview">
+                        <span class="text-slate-400 text-sm font-medium">Click "Execute ORM Queries" to query Postgres</span>
+                    </div>
+                </div>
+
+                <!-- 3. SMART VIETQR TAB -->
+                <div id="qrcode" class="tab-content">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">🎨 Compliant VietQR Generator</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">Generate standardized VietQR compliance codes dynamically based on EMVCo payment standards.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Select Bank</label>
+                                <select id="qr-bank" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium outline-none focus:border-brand transition-all">
+                                    <option value="vcb">Vietcombank</option>
+                                    <option value="tcb">Techcombank</option>
+                                    <option value="vtb">VietinBank</option>
+                                    <option value="bidv">BIDV</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Account Number</label>
+                                <input type="text" id="qr-account" value="1234567890" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium outline-none focus:border-brand transition-all">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Amount (VND)</label>
+                                <input type="number" id="qr-amount" value="50000" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium outline-none focus:border-brand transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Description</label>
+                                <input type="text" id="qr-desc" value="Thanh Toan Hop Dong" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium outline-none focus:border-brand transition-all">
+                            </div>
+                        </div>
+                        <button class="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand to-brand-light shadow-md hover:shadow-brand/20 transition-all duration-200" onclick="generateQR()">Generate SVG Code</button>
+                    </div>
+                    
+                    <div class="mt-6 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900/30 min-h-[220px] flex items-center justify-center p-4 relative overflow-hidden" id="qr-preview">
+                        <span class="text-slate-400 text-sm font-medium">Click "Generate SVG Code" to render VietQR SVG</span>
+                    </div>
+                </div>
+
+                <!-- 4. WEB CAPTURE TAB -->
+                <div id="screenshot" class="tab-content">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">📸 Headless Web Capture</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">Run native headless Chromium to load a target website and capture a high-resolution screenshot on the fly.</p>
+                        
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Target URL</label>
+                            <input type="url" id="screenshot-url" value="https://github.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-medium outline-none focus:border-brand transition-all">
+                        </div>
+                        <button class="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand to-brand-light shadow-md hover:shadow-brand/20 transition-all duration-200" onclick="captureScreen()">Trigger Chromedp Capture</button>
+                    </div>
+                    
+                    <div class="mt-6 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900/30 min-h-[200px] flex items-center justify-center p-4 relative overflow-hidden" id="screenshot-preview">
+                        <span class="text-slate-400 text-sm font-medium">Click button to launch chromium-headless (takes 3-5s)</span>
+                    </div>
+                </div>
+
+                <!-- 5. CONCURRENCY TAB -->
+                <div id="concurrency" class="tab-content">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">🔋 Parallel Goroutine Concurrency</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">Spawn high-frequency async workers running in true parallel threads from script variables without blocking the main router thread.</p>
+                        
+                        <button class="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand to-brand-light shadow-md hover:shadow-brand/20 transition-all duration-200" onclick="testBackground()">Spawn Goroutine Worker</button>
+                    </div>
+                    
+                    <div class="mt-6 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900/30 min-h-[140px] flex items-center justify-center p-4 relative overflow-hidden" id="concurrency-preview">
+                        <span class="text-slate-400 text-sm font-medium">Click button to execute non-blocking worker</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right code display panel (Col: 5) -->
+            <div class="lg:col-span-5 bg-[#090c15] rounded-2xl border border-slate-800/40 shadow-xl overflow-hidden flex flex-col justify-between">
+                <div class="bg-[#0f1322] px-4 py-3.5 flex items-center justify-between border-b border-slate-800/40">
+                    <div class="flex space-x-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                        <span class="h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
+                        <span class="h-2.5 w-2.5 rounded-full bg-green-500"></span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400 tracking-wider">app.kitwork.js</span>
+                    <div class="w-12"></div>
+                </div>
+                
+                <!-- Routing Code Snippet -->
+                <div id="routing-code" class="code-snippet-panel p-6 font-mono text-sm leading-relaxed text-slate-300 active-code flex-grow">
+                    <span class="text-slate-500">// 1. Zero-Allocation JSON API</span>
+                    <br>
+                    router.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/api/hello"</span>).<span class="text-yellow-400">handle</span>((req, res) =&gt; {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> res.<span class="text-yellow-400">json</span>({
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status: <span class="text-green-400">"active"</span>,
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;engine: <span class="text-green-400">"Kitwork Sovereign VM"</span>,
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp: <span class="text-yellow-400">Date</span>().<span class="text-yellow-400">toISOString</span>()
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;})
+                    <br>})
+                    <br><br>
+                    <span class="text-slate-500">// 2. Disk-backed Router cache</span>
+                    <br>
+                    router.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/api/cached"</span>)
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">static</span>(<span class="text-green-400">"10s"</span>)
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">handle</span>((req, res) =&gt; {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> res.<span class="text-yellow-400">text</span>(<span class="text-green-400">"Cached response"</span>)
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;})
+                </div>
+
+                <!-- ORM Code Snippet -->
+                <div id="orm-code" class="code-snippet-panel p-6 font-mono text-sm leading-relaxed text-slate-300 hidden flex-grow">
+                    <span class="text-blue-400">const</span> db = database.<span class="text-yellow-400">connection</span>()
+                    <br><br>
+                    <span class="text-slate-500">// Fluent Zero-Allocation ORM</span>
+                    <br>
+                    router.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/test-query"</span>).<span class="text-yellow-400">handle</span>((req, res) =&gt; {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> res.<span class="text-yellow-400">json</span>({
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find: db.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">find</span>(<span class="text-green-400">"username"</span>, <span class="text-green-400">"grace"</span>),
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first: db.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">first</span>(),
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count: db.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">count</span>()
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;})
+                    <br>})
+                </div>
+
+                <!-- VietQR Code Snippet -->
+                <div id="qrcode-code" class="code-snippet-panel p-6 font-mono text-sm leading-relaxed text-slate-300 hidden flex-grow">
+                    <span class="text-slate-500">// Compliant Napas VietQR SVGs</span>
+                    <br>
+                    router.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/qrcode/napas"</span>).<span class="text-yellow-400">handle</span>((req, res) =&gt; {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">const</span> payment = napas
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">bank</span>(req.<span class="text-yellow-400">query</span>(<span class="text-green-400">"bank"</span>).<span class="text-yellow-400">text</span>(), req.<span class="text-yellow-400">query</span>(<span class="text-green-400">"account"</span>).<span class="text-yellow-400">text</span>())
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">amount</span>(req.<span class="text-yellow-400">query</span>(<span class="text-green-400">"amount"</span>).<span class="text-yellow-400">text</span>())
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">info</span>(req.<span class="text-yellow-400">query</span>(<span class="text-green-400">"desc"</span>).<span class="text-yellow-400">text</span>())
+                    <br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">const</span> svg = qrcode
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">napas</span>(payment)
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">template</span>(<span class="text-green-400">"circular"</span>)
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">cell</span>({ color: <span class="text-green-400">"#0f172a"</span> })
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">svg</span>()
+                    <br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> res.<span class="text-yellow-400">svg</span>(svg)
+                    <br>})
+                </div>
+
+                <!-- Web Capture Code Snippet -->
+                <div id="screenshot-code" class="code-snippet-panel p-6 font-mono text-sm leading-relaxed text-slate-300 hidden flex-grow">
+                    <span class="text-slate-500">// Headless Web Screenshot (chromedp)</span>
+                    <br>
+                    router.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/screenshot"</span>).<span class="text-yellow-400">handle</span>((req, res) =&gt; {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">const</span> url = req.<span class="text-yellow-400">query</span>(<span class="text-green-400">"url"</span>).<span class="text-yellow-400">text</span>()
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">const</span> png = chromedp.<span class="text-yellow-400">capture</span>(url, {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <span class="text-red-400">1280</span>,
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <span class="text-red-400">720</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;})
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> res.<span class="text-yellow-400">image</span>(png)
+                    <br>})
+                </div>
+
+                <!-- Concurrency Code Snippet -->
+                <div id="concurrency-code" class="code-snippet-panel p-6 font-mono text-sm leading-relaxed text-slate-300 hidden flex-grow">
+                    <span class="text-slate-500">// Spawn background goroutine parallel worker</span>
+                    <br>
+                    router.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/background"</span>).<span class="text-yellow-400">handle</span>((req, res) =&gt; {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-yellow-400">go</span>(() =&gt; {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"Goroutine is running..."</span>)
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500">// Non-blocking database sync worker</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"Goroutine finished!"</span>)
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;})
+                    <br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> res.<span class="text-yellow-400">text</span>(<span class="text-green-400">"Background task started!"</span>)
+                    <br>})
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Author Personal Section / CTA Footer -->
+<div class="py-16 sm:py-24 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-8 border-4 border-slate-100 dark:border-slate-900 shadow-md">
+            <!-- Simulated author avatar -->
+            <div class="w-full h-full bg-gradient-to-tr from-brand to-violet-500 flex items-center justify-center text-white text-3xl font-bold">
+                HN
+            </div>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-6">✒️ Author's Note</h2>
+        
+        <blockquote class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 italic leading-relaxed max-w-2xl mx-auto mb-8">
+            "While the world is busy using AI to automate everything, I choose to breathe a soul into every line of code. I write code like essays, like unspoken confessions. I use AI not to replace myself, but as a mirror to reflect my own inner world. I expose this system to the world simply because it is beautiful, crazy, and dreamy."
+        </blockquote>
+        
+        <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-6">
+            — <span class="text-slate-900 dark:text-white font-extrabold">Huỳnh Nhân Quốc</span>, Indie-Stack Developer ❤️
         </p>
-
-        <div
-            class="bg-[#1a1b26] border-2 border-transparent hover:border-brand/60 rounded-2xl p-6 md:p-8 text-left relative overflow-hidden group hover:scale-[1.02] transition-all duration-500 inline-block w-full max-w-2xl mx-auto">
-            <div class="flex gap-2 mb-4">
-                <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-            </div>
-            <div class="font-mono text-[14px] leading-[1.8] text-[#a9b1d6]">
-                <span class="text-[#565f89] italic"># 1. Clone the repository</span><br>
-                <span class="text-brand font-bold">git</span> clone https://github.com/kitwork/engine<br>
-                <br>
-                <span class="text-[#565f89] italic"># 2. Start the industrial server</span><br>
-                <span class="text-brand font-bold">go</span> run cmd/server/main.go<br>
-            </div>
-        </div>
-
-        <div class="mt-12">
-            <a href="https://github.com/kitwork/engine" target="_blank"
-                class="inline-flex items-center gap-2 bg-gradient-to-r from-brand to-brand-light text-white font-black text-sm uppercase py-4 px-10 rounded hover:scale-105 hover:outline hover:outline-2 hover:outline-brand hover:outline-offset-4 transition-all duration-300 tracking-widest text-center">
-                Deploy Your Engine
+        
+        <div class="flex justify-center gap-4">
+            <a href="https://github.com/sponsors/huynhnhanquoc" target="_blank" class="px-6 py-2.5 rounded-xl font-bold text-brand bg-brand/10 border border-brand/20 hover:bg-brand hover:text-white transition-all duration-300">
+                ❤️ Sponsor Development
             </a>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Author's Note -->
-<section class="py-20 bg-brand/[0.02] relative overflow-hidden border-t border-brand/10">
-    <div class="max-w-4xl mx-auto px-6 relative z-10">
-
-        <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center pt-8">
-
-            <!-- Left Column: Author Info -->
-            <div
-                class="flex-shrink-0 flex flex-col items-center text-center w-full md:w-56 md:border-r border-brand/10 md:pr-10">
-                <a href="https://github.com/huynhnhanquoc" target="_blank"
-                    class="inline-block hover:scale-105 transition-transform duration-300">
-                    <img src="https://kitnext.com//upload/2wjqpur0ife35a49yklnxbc6g1dohz78vstm/media/1767499200307878152_qka7xtmpvfgz8b4yn1wirolu52jhec09ds36.jpg"
-                        alt="Huỳnh Nhân Quốc"
-                        class="w-20 h-20 rounded-full object-cover border-2 border-white mb-4 shadow-sm">
-                    <a href="https://github.com/huynhnhanquoc" target="_blank"
-                        class="font-bold text-sm tracking-wide text-gray-900 dark:text-white uppercase hover:text-brand transition-colors duration-300">Huỳnh
-                        Nhân Quốc</a>
-                    <div class="text-brand font-semibold text-xs mt-1.5 whitespace-nowrap">
-                        Indie Stack Developer
-                    </div>
-            </div>
-
-            <!-- Right Column: Quote -->
-            <div class="flex-1">
-                <blockquote
-                    class="text-base md:text-lg font-serif italic text-gray-600 dark:text-gray-300 leading-[1.8]">
-                    "While the world is busy using AI to automate everything, I choose to breathe a soul into every line
-                    of code. I write code like essays, like unspoken confessions. I use AI not to replace myself, but as
-                    a mirror to reflect my own inner world. I expose this system to the world simply because it is
-                    beautiful, crazy, and dreamy."
-                </blockquote>
-            </div>
-        </div>
-
-    </div>
-
-    </div>
-</section>
-
+<!-- Scripts and Styling updates -->
 <style>
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
+    /* Styling elements */
+    .tab-btn {
+        background-color: transparent;
+        border-color: transparent;
+        color: #64748b;
+    }
+    .dark .tab-btn {
+        color: #94a3b8;
+    }
+    .tab-btn:hover {
+        color: #0f172a;
+        background-color: #f1f5f9;
+        border-color: #e2e8f0;
+    }
+    .dark .tab-btn:hover {
+        color: #ffffff;
+        background-color: #1e293b;
+        border-color: #334155;
+    }
+    .tab-btn.active-tab {
+        background-color: #f8224410 !important;
+        border-color: #f8224440 !important;
+        color: #f82244 !important;
+    }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .tab-content {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        animation: tabFadeIn 0.3s ease-in-out forwards;
+    }
+    .tab-content.active {
+        display: flex;
+    }
+    
+    @keyframes tabFadeIn {
+        from { opacity: 0; transform: translateY(4px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Code styling */
+    .code-snippet-panel {
+        font-family: 'Fira Code', monospace;
+    }
+    .active-code {
+        display: block !important;
+    }
+
+    .preview-loading {
+        border: 2.5px solid rgba(248, 34, 68, 0.05);
+        border-top: 2.5px solid #f82244;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 0.8s linear infinite;
+    }
+
+    .preview-error {
+        color: #ef4444;
+        font-size: 0.85rem;
+        font-family: monospace;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    .preview-json {
+        width: 100%;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.8rem;
+        color: #6366f1;
+        text-align: left;
+        white-space: pre-wrap;
+    }
+    .dark .preview-json {
+        color: #818cf8;
+    }
+
+    .preview-img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+    .dark .preview-img {
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        border-color: rgba(255,255,255,0.05);
+    }
+
+    .preview-svg svg {
+        max-width: 200px;
+        max-height: 200px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+    }
+    .dark .preview-svg svg {
+        filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* Hide scrollbar utility */
+    .scrollbar-none::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-none {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 </style>
+
+<script>
+    function switchTab(tabId) {
+        // Deactivate all buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+        
+        // Find and activate clicked button based on onclick
+        const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+        if (activeBtn) activeBtn.classList.add('active-tab');
+
+        // Deactivate all tab content and code snippets
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        document.querySelectorAll('.code-snippet-panel').forEach(code => code.classList.add('hidden'));
+
+        // Activate matching elements
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById(tabId + '-code').classList.remove('hidden');
+    }
+
+    // Initialize layout settings for localhost
+    document.addEventListener("DOMContentLoaded", function() {
+        // Force test routing endpoint setup
+        const select = document.getElementById('routing-endpoint');
+        if (select) {
+            // Check if routing endpoint has /api/hello
+            select.value = "/hello";
+        }
+    });
+
+    function showLoading(containerId) {
+        document.getElementById(containerId).innerHTML = '<div class="preview-loading"></div>';
+    }
+
+    function showError(containerId, message) {
+        document.getElementById(containerId).innerHTML = '<div class="preview-error">Error: ' + message + '</div>';
+    }
+
+    function testRouting() {
+        const endpoint = document.getElementById('routing-endpoint').value;
+        const preview = document.getElementById('routing-preview');
+        showLoading('routing-preview');
+
+        fetch(endpoint)
+            .then(response => {
+                const isJson = response.headers.get('content-type').includes('application/json');
+                return response.text().then(text => ({ isJson, text }));
+            })
+            .then(({ isJson, text }) => {
+                if (isJson) {
+                    const formatted = JSON.stringify(JSON.parse(text), null, 4);
+                    preview.innerHTML = '<pre class="preview-json">' + formatted + '</pre>';
+                } else {
+                    preview.innerHTML = '<div class="text-sm font-semibold text-slate-800 dark:text-slate-200">' + text + '</div>';
+                }
+            })
+            .catch(err => showError('routing-preview', err.message));
+    }
+
+    function testORM() {
+        showLoading('orm-preview');
+        fetch('/test-query')
+            .then(res => res.json())
+            .then(data => {
+                const formatted = JSON.stringify(data, null, 4);
+                document.getElementById('orm-preview').innerHTML = '<pre class="preview-json">' + formatted + '</pre>';
+            })
+            .catch(err => showError('orm-preview', err.message));
+    }
+
+    function generateQR() {
+        const bank = document.getElementById('qr-bank').value;
+        const account = document.getElementById('qr-account').value;
+        const amount = document.getElementById('qr-amount').value;
+        const desc = document.getElementById('qr-desc').value;
+        
+        showLoading('qr-preview');
+        // adapt endpoint parameters for test-napas-auto or test-vietqr-svg if needed, or query standard
+        const url = '/qrcode/napas?bank=' + bank + '&account=' + account + '&amount=' + amount + '&desc=' + encodeURIComponent(desc);
+        
+        fetch(url)
+            .then(res => res.text())
+            .then(svgText => {
+                document.getElementById('qr-preview').innerHTML = '<div class="preview-svg">' + svgText + '</div>';
+            })
+            .catch(err => showError('qr-preview', err.message));
+    }
+
+    function captureScreen() {
+        const url = document.getElementById('screenshot-url').value;
+        showLoading('screenshot-preview');
+        
+        const captureUrl = '/screenshot?url=' + encodeURIComponent(url);
+        fetch(captureUrl)
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to capture page');
+                return res.blob();
+            })
+            .then(blob => {
+                const imgUrl = URL.createObjectURL(blob);
+                document.getElementById('screenshot-preview').innerHTML = '<img class="preview-img" src="' + imgUrl + '" alt="Web capture preview" />';
+            })
+            .catch(err => showError('screenshot-preview', err.message));
+    }
+
+    function testBackground() {
+        showLoading('concurrency-preview');
+        fetch('/background')
+            .then(res => res.text())
+            .then(text => {
+                document.getElementById('concurrency-preview').innerHTML = '<div class="text-sm font-semibold text-green-500">' + text + '</div>';
+            })
+            .catch(err => showError('concurrency-preview', err.message));
+    }
+</script>

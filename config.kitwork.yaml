@@ -1,3 +1,6 @@
-port: 8080
-root: "public"
-
+port: 8086
+root: "."
+hot_reload: true
+domains: 
+  - kitwork.vn
+  - kitwok

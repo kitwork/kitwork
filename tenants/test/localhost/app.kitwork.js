@@ -1,4 +1,4 @@
-const { router, log, render, http, database, go, napas, qrcode } = kitwork();
+const { router, log, render, http, database, go, napas, qrcode, chromedp } = kitwork();
 
 const global = {
     name: "kitwork",
@@ -24,27 +24,12 @@ const site = render.directory("views");
 const home = site.path("/").global(global).layout(layout).notfound("notfound");
 const docs = site.path("/docs").global(global).layout(layoutDocs).notfound("notfound");
 
-const db = database.connection({
-    type: "postgres",
-    user: "postgres",
-    password: "db.kitwork.io@03122025",
-    name: "postgres",
-    host: "152.42.253.164",
-    port: 5432,
-    ssl: "require",
-    timezone: "Asia/Ho_Chi_Minh",
-    timeout: 5,
-    max_open: 50,
-    max_idle: 10,
-    lifetime: 12,
-    max_limit: 60,
-})
+const db = database.connection()
 
 
 router.get("/favicon.ico").file("/assets/favicon.ico");
 router.get("/taiwindcss.js").file("/assets/js/taiwindcss.js");
 // Serve absolute sovereign assets from demo/public relative to project root
-router.get("/public/*").directory("./demo/public");
 router.get("/assets/*").directory("./assets/*");
 
 router.get("/hello").handle((response) => {
@@ -299,6 +284,39 @@ router.get("/test-vietqr-svg").handle((request, response) => {
         .svg();
 
     return response.svg(svgString);
+});
+
+router.get("/qrcode/napas").handle((request, response) => {
+    const bank = request.query("bank").text() || "vcb";
+    const account = request.query("account").text() || "1234567890";
+    const amountStr = request.query("amount").text() || "50000";
+    const desc = request.query("desc").text() || "Thanh toan";
+
+    const payment = napas
+        .bank(bank, account)
+        .amount(amountStr)
+        .info(desc);
+
+    const svgContent = qrcode
+        .napas(payment)
+        .template("circular")
+        .padding(2)
+        .cell({
+            color: "#0f172a",
+            size: 0.75
+        })
+        .svg();
+
+    return response.svg(svgContent);
+});
+
+router.get("/screenshot").handle((request, response) => {
+    const urlStr = request.query("url").text() || "https://github.com";
+    const pngBytes = chromedp.capture(urlStr, {
+        width: 1280,
+        height: 720
+    });
+    return response.image(pngBytes);
 });
 
 router.get("/*").handle((request, response) => {
