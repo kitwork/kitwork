@@ -3,4 +3,4 @@ root: "."
 hot_reload: true
 domains: 
   - kitwork.vn
-  - kitwok
+  - kitwork.io
