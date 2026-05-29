@@ -1,0 +1,116 @@
+<!-- Ambient glowing light -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+<!-- Hero Header -->
+<div class="mb-24 relative z-10">
+    <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+        Cookbook & Templates
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
+        Real-world <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">Templates</span>
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
+        Copy production-ready solutions and design architectures built using the Kitwork sovereign engine.
+    </p>
+</div>
+
+<div class="space-y-32">
+    <!-- Section 1: E-commerce Checkout -->
+    <section id="ecommerce-checkout" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">E-commerce Store Checkout</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Create a dynamic checkout route that records transaction rows in the database and generates custom VietQR vectors dynamically.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">checkout.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">post</span>(<span class="text-green-400">"/order/checkout"</span>).<span class="text-yellow-400">handle</span>((<span class="text-orange-400">req, res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">body</span> = <span class="text-orange-400">req</span>.<span class="text-yellow-400">body</span>().<span class="text-yellow-400">json</span>();<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// 1. Write order details to the database</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">order</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"orders"</span>).<span class="text-yellow-400">create</span>({<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: <span class="text-blue-400">body</span>.<span class="text-blue-400">amount</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status: <span class="text-green-400">"pending"</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// 2. Build VietQR payload</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">payment</span> = <span class="text-blue-400">napas</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">bank</span>(<span class="text-green-400">"970415"</span>, <span class="text-green-400">"1234567890"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">amount</span>(<span class="text-blue-400">order</span>.<span class="text-blue-400">amount</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">info</span>(<span class="text-green-400">"PAY ORDER "</span> + <span class="text-blue-400">order</span>.<span class="text-blue-400">id</span>);<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">qrSvg</span> = <span class="text-blue-400">qrcode</span>.<span class="text-yellow-400">napas</span>(<span class="text-blue-400">payment</span>).<span class="text-yellow-400">svg</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">json</span>({<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orderId: <span class="text-blue-400">order</span>.<span class="text-blue-400">id</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;qrcode: <span class="text-blue-400">qrSvg</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Auto-reporting Worker -->
+    <section id="auto-reporting-worker" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Auto-reporting Worker</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Combine isolated Goroutines with headless browser captures to fetch stats, snapshot visual charts, and record backups periodically.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">cron-worker.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// Spawn background worker scope</span><br>
+                    <span class="text-yellow-400">go</span>(() => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">while</span> (<span class="text-purple-400">true</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">log</span>.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"Initiating dashboard capture..."</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">try</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">png</span> = <span class="text-blue-400">chromedp</span>.<span class="text-yellow-400">capture</span>(<span class="text-green-400">"http://127.0.0.1:8080/dashboard"</span>, {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <span class="text-red-400">1920</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <span class="text-red-400">1080</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;waitSelector: <span class="text-green-400">"#charts-loaded"</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Save to local backup, send to webhook, etc.</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">log</span>.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"Dashboard snapshot recorded successfully."</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="text-purple-400">catch</span> (<span class="text-orange-400">err</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">log</span>.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"Capture failed: "</span> + <span class="text-orange-400">err</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Wait for 24 hours</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">sys</span>.<span class="text-yellow-400">sleep</span>(<span class="text-green-400">"24h"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

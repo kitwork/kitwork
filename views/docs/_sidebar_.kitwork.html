@@ -1,11 +1,26 @@
     <div class="sticky top-32 space-y-8">
         <div>
             <h3 class="font-black text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">Documentation</h3>
+
+            <!-- Search Bar Input -->
+            <div class="mb-6 relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                <input type="text" id="docs-search-input" placeholder="Search docs..."
+                    class="w-full pl-9 pr-4 py-2 text-xs rounded-xl border border-gray-200 dark:border-slate-800 bg-[#f8fafc] dark:bg-[#090c15] text-gray-900 dark:text-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors">
+                <!-- Search Results Dropdown -->
+                <div id="search-results-dropdown" class="absolute left-0 right-0 mt-2 bg-white dark:bg-[#0f1322] border border-gray-200 dark:border-slate-800/80 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto hidden divide-y divide-gray-100 dark:divide-slate-800/50">
+                </div>
+            </div>
+
             <ul class="space-y-3">
                 <!-- Documents (Trang chủ Docs) -->
                 <li>
                     <a href="/docs"
-                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == "/docs" ? "text-brand font-bold bg-brand/5 border-brand/10 shadow-sm" : "text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent" }}">
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent' }}">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -14,20 +29,38 @@
                     </a>
                 </li>
 
+                <!-- Directory Structure -->
+                <li>
+                    <a href="/docs/structure"
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/structure' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/structure' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
+                        Directory Structure
+                    </a>
+                </li>
+
                 <!-- Routing -->
                 <li>
                     <a href="/docs/routing"
-                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == "/docs/routing" ? "text-brand font-bold bg-brand/5 border-brand/10 shadow-sm" : "text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group" }}">
-                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == "/docs/routing" ? "bg-brand" : "bg-gray-200 dark:bg-gray-800 group-hover:bg-brand" }} transition-colors"></div>
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/routing' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/routing' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
                         Routing Basics
+                    </a>
+                </li>
+
+                <!-- Template Engine -->
+                <li>
+                    <a href="/docs/templates"
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/templates' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/templates' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
+                        Template Engine
                     </a>
                 </li>
 
                 <!-- Database -->
                 <li>
                     <a href="/docs/database"
-                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == "/docs/database" ? "text-brand font-bold bg-brand/5 border-brand/10 shadow-sm" : "text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group" }}">
-                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == "/docs/database" ? "bg-brand" : "bg-gray-200 dark:bg-gray-800 group-hover:bg-brand" }} transition-colors"></div>
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/database' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/database' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
                         Query Builder
                     </a>
                 </li>
@@ -35,11 +68,129 @@
                 <!-- Concurrency -->
                 <li>
                     <a href="/docs/async"
-                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == "/docs/async" ? "text-brand font-bold bg-brand/5 border-brand/10 shadow-sm" : "text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group" }}">
-                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == "/docs/async" ? "bg-brand" : "bg-gray-200 dark:bg-gray-800 group-hover:bg-brand" }} transition-colors"></div>
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/async' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/async' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
                         Concurrency
+                    </a>
+                </li>
+
+                <!-- HTTP Client & Cache -->
+                <li>
+                    <a href="/docs/http-cache"
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/http-cache' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/http-cache' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
+                        HTTP & Cache
+                    </a>
+                </li>
+
+                <!-- Smart QR & Payments -->
+                <li>
+                    <a href="/docs/payments"
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/payments' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/payments' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
+                        Smart QR & Payments
+                    </a>
+                </li>
+
+                <!-- Chrome Automation -->
+                <li>
+                    <a href="/docs/automation"
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/automation' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/automation' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
+                        Chrome Automation
+                    </a>
+                </li>
+
+                <!-- Cookbook -->
+                <li>
+                    <a href="/docs/cookbook"
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg border transition-all {{ request.path == '/docs/cookbook' ? 'text-brand font-bold bg-brand/5 border-brand/10 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-brand font-medium border-transparent group' }}">
+                        <div class="w-1.5 h-1.5 rounded-full {{ request.path == '/docs/cookbook' ? 'bg-brand' : 'bg-gray-200 dark:bg-gray-800 group-hover:bg-brand' }} transition-colors"></div>
+                        Cookbook & Examples
                     </a>
                 </li>
             </ul>
         </div>
     </div>
+
+    <script>
+        (function () {
+            const searchIndex = [
+                { title: "Getting Started - Core Philosophy", url: "/docs#core-philosophy" },
+                { title: "Getting Started - Quick Start", url: "/docs#quick-start" },
+                { title: "Getting Started - Installation & Setup", url: "/docs#installation" },
+                { title: "Getting Started - CLI Reference", url: "/docs#cli-commands" },
+                { title: "Getting Started - Standalone Execution", url: "/docs#standalone-execution" },
+                { title: "Getting Started - Multi-Tenant Architecture", url: "/docs#multi-tenant" },
+                { title: "Directory Structure - Standard Layout", url: "/docs/structure#standard-layout" },
+                { title: "Directory Structure - YAML Config Schema", url: "/docs/structure#config-schema" },
+                { title: "Directory Structure - Serving Assets", url: "/docs/structure#serving-assets" },
+                { title: "Routing Basics - Basic Routing", url: "/docs/routing#basic-routing" },
+                { title: "Routing Basics - Route Parameters", url: "/docs/routing#route-parameters" },
+                { title: "Routing Basics - Route Groups", url: "/docs/routing#route-groups" },
+                { title: "Routing Basics - Request & Response API", url: "/docs/routing#request-response-api" },
+                { title: "Routing Basics - Body Parsing & POST", url: "/docs/routing#body-parsing" },
+                { title: "Routing Basics - Custom Headers & Status Codes", url: "/docs/routing#custom-headers" },
+                { title: "Template Engine - Template Syntax", url: "/docs/templates#template-syntax" },
+                { title: "Template Engine - Layouts & Partials", url: "/docs/templates#layouts-partials" },
+                { title: "Template Engine - High Performance Caching", url: "/docs/templates#view-caching" },
+                { title: "Template Engine - Data Bindings & Expressions", url: "/docs/templates#bindings-expressions" },
+                { title: "Template Engine - Directory Layouts", url: "/docs/templates#directory-layouts" },
+                { title: "Template Engine - XSS Escaping & HTML Injection", url: "/docs/templates#xss-escaping" },
+                { title: "Query Builder - Retrieving Data", url: "/docs/database#retrieving-data" },
+                { title: "Query Builder - Create & Update", url: "/docs/database#create-update" },
+                { title: "Query Builder - Advanced Filtering & Scopes", url: "/docs/database#advanced-filtering" },
+                { title: "Query Builder - Database Joins & Raw Queries", url: "/docs/database#database-joins" },
+                { title: "Query Builder - Transactions & Safety", url: "/docs/database#transactions-safety" },
+                { title: "Query Builder - Postgres Driver Configuration", url: "/docs/database#postgres-config" },
+                { title: "Concurrency - The go() Function", url: "/docs/async#the-go-function" },
+                { title: "Concurrency - Why Goroutines?", url: "/docs/async#why-use-goroutines" },
+                { title: "Concurrency - Thread-Safe Database Queries", url: "/docs/async#thread-safe-db" },
+                { title: "Concurrency - VM Pool Architecture", url: "/docs/async#vm-pool" },
+                { title: "HTTP & Cache - HTTP Client", url: "/docs/http-cache#http-client" },
+                { title: "HTTP & Cache - Declarative Caching", url: "/docs/http-cache#route-caching" },
+                { title: "HTTP & Cache - Route Flow Hooks", url: "/docs/http-cache#flow-hooks" },
+                { title: "Smart QR & Payments - Napas Payload Builder", url: "/docs/payments#napas-spec" },
+                { title: "Smart QR & Payments - Designer QR Customization", url: "/docs/payments#qr-styling" },
+                { title: "Smart QR & Payments - PNG & SVG Outputs", url: "/docs/payments#qr-output" },
+                { title: "Smart QR & Payments - Bank BIN Reference Table", url: "/docs/payments#bank-bins" },
+                { title: "Smart QR & Payments - Dynamic Payment Tutorial", url: "/docs/payments#dynamic-payment" },
+                { title: "Chrome Automation - Headless Web Capture", url: "/docs/automation#web-capture" },
+                { title: "Chrome Automation - Serving Screenshot Streams", url: "/docs/automation#serving-screenshots" },
+                { title: "Chrome Automation - Options & Wait Policies", url: "/docs/automation#wait-policies" },
+                { title: "Cookbook - E-commerce Store Checkout", url: "/docs/cookbook#ecommerce-checkout" },
+                { title: "Cookbook - Auto-reporting Worker", url: "/docs/cookbook#auto-reporting-worker" }
+            ];
+
+            const input = document.getElementById('docs-search-input');
+            const dropdown = document.getElementById('search-results-dropdown');
+
+            if (!input || !dropdown) return;
+
+            input.addEventListener('input', (e) => {
+                const val = e.target.value.toLowerCase().trim();
+                if (!val) {
+                    dropdown.classList.add('hidden');
+                    dropdown.innerHTML = '';
+                    return;
+                }
+                const matches = searchIndex.filter(item => item.title.toLowerCase().includes(val));
+                if (matches.length === 0) {
+                    dropdown.innerHTML = '<div class="p-3 text-xs text-gray-400 dark:text-slate-500 italic">No results found</div>';
+                } else {
+                    dropdown.innerHTML = matches.map(item => `
+                        <a href="${item.url}" class="block p-3 text-xs text-gray-700 dark:text-slate-300 hover:bg-brand/5 hover:text-brand font-medium transition-colors border-b border-gray-100 dark:border-slate-800/40 last:border-0">
+                            ${item.title}
+                        </a>
+                    `).join('');
+                }
+                dropdown.classList.remove('hidden');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        })();
+    </script>

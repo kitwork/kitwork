@@ -1,0 +1,235 @@
+<!-- Ambient glowing light -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+<!-- Hero Header -->
+<div class="mb-24 relative z-10">
+    <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+        Presentation Layer
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
+        Template <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">Engine</span>
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
+        Kitwork's layout engine compiles structured HTML templates directly into high-velocity responses with zero run-time allocations.
+    </p>
+</div>
+
+<div class="space-y-32">
+    <!-- Section 1: Template Syntax -->
+    <section id="template-syntax" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Template Syntax</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Render dynamic variables and evaluate expressions safely inside your HTML using double curly braces <code>&#123;&#123; value &#125;&#125;</code>.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group mb-8">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">welcome.kitwork.html</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    &lt;div class="welcome-box"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Welcome back, &#123;&#123; user.name &#125;&#125;!&lt;/h1&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Your current role is: &#123;&#123; user.role ?? "Guest" &#125;&#125;&lt;/p&gt;<br>
+                    &lt;/div&gt;
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Layouts & Partial Views -->
+    <section id="layouts-partials" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Layouts & Partials</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Separate structural headers, sidebars, and footers into reusable components using Layout binds.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">layout.kitwork.html</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    &lt;html&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123; _head_ &#125;&#125;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123; _navbar_ &#125;&#125;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;main&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123; _page_ &#125;&#125;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/main&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;&#123; _footer_ &#125;&#125;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Caching Compiled Views -->
+    <section id="view-caching" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">03</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">High Performance Caching</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Kitwork's rendering pipeline caches structured token hierarchies in memory to bypass redundant string generation.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">cache.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// Enable HTTP Cache at the router level</span><br>
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/home"</span>).<span class="text-yellow-400">cache</span>(<span class="text-green-400">"5s"</span>).<span class="text-yellow-400">handle</span>((<span class="text-orange-400">req, res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">html</span>(<span class="text-blue-400">home</span>.<span class="text-yellow-400">page</span>(<span class="text-green-400">"welcome"</span>));<br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Data Bindings & Expressions -->
+    <section id="bindings-expressions" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">04</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Data Bindings & Expressions</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Bind data contexts using the <code>.bind(...)</code> method. Write inline logical evaluations and nullish fallback checks inside templates.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">bind-expression.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// 1. JS Route Binding</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">view</span> = <span class="text-blue-400">page</span>.<span class="text-yellow-400">bind</span>({<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;user: { name: <span class="text-green-400">"Grace"</span>, active: <span class="text-purple-400">true</span> }<br>
+                    });<br>
+                    <br>
+                    <span class="text-slate-500 italic">// 2. HTML Expression Evaluation</span><br>
+                    &lt;div class="status-badge {{ user.active ? 'bg-green-500' : 'bg-red-500' }}"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Hello, {{ user.name ?? 'Guest' }}<br>
+                    &lt;/div&gt;
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Directory Layout Configurations -->
+    <section id="directory-layouts" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">05</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Directory Layouts</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Define the root view folder, attach layouts, link default footer/header partials, and assign notfound handlers.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">layouts.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">site</span> = <span class="text-blue-400">render</span>.<span class="text-yellow-400">directory</span>(<span class="text-green-400">"views"</span>);<br>
+                    <br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">home</span> = <span class="text-blue-400">site</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">path</span>(<span class="text-green-400">"/"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">global</span>(globalObj)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">layout</span>({<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navbar: <span class="text-green-400">"_navbar_"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;footer: <span class="text-green-400">"_footer_"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;head: <span class="text-green-400">"_head_"</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">notfound</span>(<span class="text-green-400">"notfound"</span>);
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: XSS Escaping & Safe HTML Injection -->
+    <section id="xss-escaping" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">06</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">XSS Escaping & Safe HTML Injection</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                By default, double curly braces <code>&#123;&#123; value &#125;&#125;</code> escape all HTML symbols to defend against Cross-Site Scripting (XSS) injections. If you need to output unescaped raw HTML blocks, wrap layout symbols inside subview references.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">escaping.html</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">&lt;!-- Escaped output: &amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt; --&gt;</span><br>
+                    &lt;div&gt;&amp;#123;&amp;#123; user.description &amp;#125;&amp;#125;&lt;/div&gt;<br>
+                    <br>
+                    <span class="text-slate-500 italic">&lt;!-- Unescaped safe layout bindings are loaded cleanly: --&gt;</span><br>
+                    &lt;div&gt;&amp;#123;&amp;#123; _page_ &amp;#125;&amp;#125;&lt;/div&gt;
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

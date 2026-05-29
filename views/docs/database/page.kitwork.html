@@ -1,79 +1,231 @@
-<div class="lg:col-span-6 order-1 lg:order-2 relative">
-    <!-- Ambient glowing light -->
-    <div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
+<!-- Ambient glowing light -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-    <!-- Hero Header -->
-    <div class="mb-24 relative z-10">
-        <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
-            <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
-            Data Strategy
+<!-- Hero Header -->
+<div class="mb-24 relative z-10">
+    <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+        Data Strategy
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
+        Database <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">ORM</span>
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
+        A natively compiled Query Builder that avoids raw SQL entirely while running at maximum CGO speeds.
+    </p>
+</div>
+
+<div class="space-y-32">
+    <!-- Section: Retrieving Data -->
+    <section id="retrieving-data" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Retrieving Data</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Chain filters safely without SQL Injection vulnerabilities. The engine handles parameter binding automatically.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">query.kitwork.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// Select Multiple Rows</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">users</span> = <span class="text-blue-400">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">limit</span>(<span class="text-red-400">5</span>).<span class="text-yellow-400">list</span>();<br>
+                    <br>
+                    <span class="text-slate-500 italic">// Filter Single Row</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">admin</span> = <span class="text-blue-400">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">where</span>((<span class="text-orange-400">u</span>) => <span class="text-orange-400">u</span>.<span class="text-blue-400">role</span> == <span class="text-green-400">"admin"</span>).<span class="text-yellow-400">first</span>();
+                </div>
+            </div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
-            Database <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">ORM</span>
-        </h1>
-        <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
-            A natively compiled Query Builder that avoids raw SQL entirely while running at maximum CGO speeds.
-        </p>
-    </div>
+    </section>
 
-    <div class="space-y-32">
-        <!-- Section: Retrieving Data -->
-        <section id="retrieving-data" class="relative scroll-mt-32">
-            <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
-            
-            <div class="relative z-10">
-                <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Retrieving Data</h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
-                    Chain filters safely without SQL Injection vulnerabilities. The engine handles parameter binding automatically.
-                </p>
+    <!-- Section: Create & Update -->
+    <section id="create-update" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
 
-                <div class="bg-[#242442] rounded-3xl border-2 border-transparent hover:border-brand/60 shadow-2xl overflow-hidden relative group/code transition-all duration-500">
-                    <div class="flex justify-between items-center bg-[#1a1a32] border-b border-[#2d2d52] px-6 py-4">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                        </div>
-                        <div class="font-mono text-[10px] font-bold text-[#a9b1d6] uppercase tracking-widest">query.kitwork.js</div>
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Create & Update</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Manipulate data using pure JSON objects. Validation is performed at the engine level.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
                     </div>
-                    <div class="p-8 md:p-10 font-mono text-base leading-[2] text-[#a9b1d6]">
-                        <span class="text-[#565f89] italic">// Select Multiple Rows</span><br>
-                        <span class="text-[#f7768e]">const</span> <span class="text-[#c0caf5]">users</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-[#bb9af7]">table</span>(<span class="text-[#9ece6a]">"user"</span>).<span class="text-[#bb9af7]">limit</span>(<span class="text-[#ff9e64]">50</span>).<span class="text-[#bb9af7]">list</span>();<br>
-                        <br>
-                        <span class="text-[#565f89] italic">// Filter Single Row</span><br>
-                        <span class="text-[#f7768e]">const</span> <span class="text-[#c0caf5]">admin</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-[#bb9af7]">table</span>(<span class="text-[#9ece6a]">"user"</span>).<span class="text-[#bb9af7]">where</span>((<span class="text-[#e0af68]">u</span>) => <span class="text-[#e0af68]">u</span>.<span class="text-[#c0caf5]">role</span> == <span class="text-[#9ece6a]">"admin"</span>).<span class="text-[#bb9af7]">first</span>();
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">mutate.kitwork.js</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section: Create & Update -->
-        <section id="create-update" class="relative scroll-mt-32">
-            <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
-
-            <div class="relative z-10">
-                <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Create & Update</h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
-                    Manipulate data using pure JSON objects. Validation is performed at the engine level.
-                </p>
-
-                <div class="bg-[#242442] rounded-3xl border-2 border-transparent hover:border-brand/60 shadow-2xl overflow-hidden relative group/code transition-all duration-500">
-                    <div class="flex justify-between items-center bg-[#1a1a32] border-b border-[#2d2d52] px-6 py-4">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                        </div>
-                        <div class="font-mono text-[10px] font-bold text-[#a9b1d6] uppercase tracking-widest">mutate.kitwork.js</div>
-                    </div>
-                    <div class="p-8 md:p-10 font-mono text-base leading-[2] text-[#a9b1d6]">
-                        <span class="text-[#c0caf5]">db</span>.<span class="text-[#bb9af7]">table</span>(<span class="text-[#9ece6a]">"user"</span>).<span class="text-[#bb9af7]">create</span>({<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#c0caf5]">username:</span> <span class="text-[#9ece6a]">"hacker101"</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#c0caf5]">is_active:</span> <span class="text-[#f7768e]">true</span><br>
-                        });
-                    </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">create</span>({<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;username: <span class="text-green-400">"hacker101"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;is_active: <span class="text-purple-400">true</span><br>
+                    });<br>
+                    <br>
+                    <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">where</span>(<span class="text-orange-400">user</span> => <span class="text-orange-400">user</span>.<span class="text-blue-400">id</span> == <span class="text-red-400">5</span>).<span class="text-yellow-400">update</span>({<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;is_active: <span class="text-purple-400">false</span><br>
+                    });
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- Section: Advanced Filtering & Scopes -->
+    <section id="advanced-filtering" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">03</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Advanced Filtering & Scopes</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Perform counts, checks, limit rows, and execute shortcuts with fast Javascript lambda filtering options.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">scopes.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// 1. Lambda query builder limits & shortcuts</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">topUsers</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">limit</span>(<span class="text-red-400">3</span>).<span class="text-yellow-400">list</span>(<span class="text-orange-400">u</span> => <span class="text-orange-400">u</span>.<span class="text-blue-400">id</span> > <span class="text-red-400">5</span>);<br>
+                    <br>
+                    <span class="text-slate-500 italic">// 2. Existence verification</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">exists</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">exists</span>(<span class="text-orange-400">u</span> => <span class="text-orange-400">u</span>.<span class="text-blue-400">username</span> == <span class="text-green-400">"grace"</span>);<br>
+                    <br>
+                    <span class="text-slate-500 italic">// 3. Counts based on filters</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">activeCount</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">count</span>(<span class="text-orange-400">u</span> => <span class="text-orange-400">u</span>.<span class="text-blue-400">is_active</span> == <span class="text-purple-400">true</span>);
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Database Joins & Raw Queries -->
+    <section id="database-joins" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">04</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Database Joins & Raw Queries</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Link separate tables together with high-performance joins, or escape to raw SQL when running complex database operations.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">joins-raw.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// 1. Inter-table database joins</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">orders</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">join</span>((<span class="text-orange-400">order, user</span>) => <span class="text-orange-400">order</span>.<span class="text-blue-400">user_id</span> == <span class="text-orange-400">user</span>.<span class="text-blue-400">id</span>).<span class="text-yellow-400">list</span>();<br>
+                    <br>
+                    <span class="text-slate-500 italic">// 2. Raw query output string</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">rawSql</span> = <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">where</span>(<span class="text-orange-400">u</span> => <span class="text-orange-400">u</span>.<span class="text-blue-400">username</span> == <span class="text-green-400">"alice%"</span>).<span class="text-yellow-400">Raw</span>();
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Database Transactions & Safety -->
+    <section id="transactions-safety" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">05</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Database Transactions & Safety</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Every query runs parameter bindings automatically to block injection vectors. Run isolated mutations inside safe execution scopes.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">safety.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// Safely escape user inputs by chaining parameter filters</span><br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">userInput</span> = <span class="text-green-400">"admin' OR 1=1--"</span>;<br>
+                    <br>
+                    <span class="text-[#c0caf5]">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"user"</span>).<span class="text-yellow-400">find</span>(<span class="text-green-400">"username"</span>, <span class="text-blue-400">userInput</span>);<br>
+                    <span class="text-slate-500 italic">// Generates prepared query: SELECT * FROM "user" WHERE username = $1</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Postgres Driver Configuration -->
+    <section id="postgres-config" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">06</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Postgres Driver Configuration</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Define your database server connection details inside the central application configuration keys.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">config.kitwork.yaml</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-blue-400">database</span>:<br>
+                    &nbsp;&nbsp;<span class="text-blue-400">type</span>: <span class="text-green-400">"postgres"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">host</span>: <span class="text-green-400">"152.42.253.164"</span> &nbsp;&nbsp;<span class="text-slate-500 italic"># DB server address</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">port</span>: <span class="text-red-400">5432</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">user</span>: <span class="text-green-400">"postgres"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">password</span>: <span class="text-green-400">"kitwork@123"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">name</span>: <span class="text-green-400">"master"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">ssl</span>: <span class="text-green-400">"require"</span>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

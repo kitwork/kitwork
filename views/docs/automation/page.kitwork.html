@@ -1,0 +1,125 @@
+<!-- Ambient glowing light -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+<!-- Hero Header -->
+<div class="mb-24 relative z-10">
+    <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+        Automation Layer
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
+        Chrome <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">Automation</span>
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
+        Instrument headless Chromium instances natively from the server virtual machine. Generate screenshots, capture page states, and generate PDF invoices dynamically.
+    </p>
+</div>
+
+<div class="space-y-32">
+    <!-- Section 1: Capture Web Views -->
+    <section id="web-capture" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Headless Web Capture</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Deploy the <code>chromedp</code> module to spin up isolated browser contexts, navigate to targets, and capture page buffers.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">capture.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-purple-400">import</span> { <span class="text-blue-400">chromedp</span> } <span class="text-purple-400">from</span> <span class="text-green-400">'kitwork'</span>;<br>
+                    <br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">pngBytes</span> = <span class="text-blue-400">chromedp</span>.<span class="text-yellow-400">capture</span>(<span class="text-green-400">"https://github.com"</span>, {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;width: <span class="text-red-400">1280</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;height: <span class="text-red-400">720</span><br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Serving Screenshot Streams -->
+    <section id="serving-screenshots" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Serving Screenshot Streams</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Deliver binary PNG buffers straight back to the client request stream by using the response image handler.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">server-capture.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/screenshot"</span>).<span class="text-yellow-400">handle</span>((<span class="text-orange-400">req, res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">targetUrl</span> = <span class="text-orange-400">req</span>.<span class="text-yellow-400">query</span>(<span class="text-green-400">"url"</span>).<span class="text-yellow-400">text</span>() || <span class="text-green-400">"https://github.com"</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">pngBytes</span> = <span class="text-blue-400">chromedp</span>.<span class="text-yellow-400">capture</span>(<span class="text-blue-400">targetUrl</span>, {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: <span class="text-red-400">1280</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: <span class="text-red-400">720</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">image</span>(<span class="text-blue-400">pngBytes</span>);<br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Advanced Options & Wait Policies -->
+    <section id="wait-policies" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">03</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Advanced Options & Wait Policies</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Control the browser life cycle. Customize selector loading rules and wait delays to ensure asynchronous client-side SPAs render fully before screenshot acquisition.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">wait-policies.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">pngBytes</span> = <span class="text-blue-400">chromedp</span>.<span class="text-yellow-400">capture</span>(<span class="text-green-400">"https://github.com"</span>, {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;width: <span class="text-red-400">1920</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;height: <span class="text-red-400">1080</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;waitSelector: <span class="text-green-400">".dashboard-grid"</span>, &nbsp;<span class="text-slate-500 italic">// Wait until element loads</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;timeout: <span class="text-green-400">"5s"</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Timeout ceiling limit</span><br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,230 @@
+<!-- Ambient glowing light -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+<!-- Hero Header -->
+<div class="mb-24 relative z-10">
+    <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+        Financial API Layer
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
+        Smart QR & <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">Payments</span>
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
+        Build Napas-compliant VietQR financial payment solutions. Render standard SVG/PNG codes with designer gradients, custom cell distributions, and branding.
+    </p>
+</div>
+
+<div class="space-y-32">
+    <!-- Section 1: Napas Payload Specifications -->
+    <section id="napas-spec" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Napas Payload Builder</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Structure VietQR-compatible codes by supplying the target Bank BIN code, Account Number, Account Owner Name, and Transfer Amount.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">napas.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-purple-400">import</span> { <span class="text-blue-400">napas</span> } <span class="text-purple-400">from</span> <span class="text-green-400">'kitwork'</span>;<br>
+                    <br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">payment</span> = <span class="text-blue-400">napas</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">bank</span>(<span class="text-green-400">"970415"</span>, <span class="text-green-400">"1234567890"</span>) &nbsp;<span class="text-slate-500 italic">// Bank BIN & Account Number</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">amount</span>(<span class="text-red-400">150000</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Amount in VND</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">receiver</span>(<span class="text-green-400">"NGUYEN VAN A"</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Account Holder Name</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">info</span>(<span class="text-green-400">"Thanh toan nuoc"</span>); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Description</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Designer QR Rendering -->
+    <section id="qr-styling" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Designer QR Customization</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Build beautiful premium codes by configuring custom cell template layouts (e.g. <code>circular</code>, <code>rounded</code>), embedded brand logos, color gradients, and independent eye coordinates.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">qrcode.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-purple-400">import</span> { <span class="text-blue-400">qrcode</span> } <span class="text-purple-400">from</span> <span class="text-green-400">'kitwork'</span>;<br>
+                    <br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">svgCode</span> = <span class="text-blue-400">qrcode</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">napas</span>(<span class="text-blue-400">payment</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">template</span>(<span class="text-green-400">"circular"</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Dot pattern type</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">logo</span>(<span class="text-green-400">"vietqr"</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Center brand logo overlay</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">cell</span>({<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient: { type: <span class="text-green-400">"linear"</span>, colors: [<span class="text-green-400">"#0f172a"</span>, <span class="text-green-400">"#38bdf8"</span>], angle: <span class="text-red-400">45</span> }<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Override top-left finder with a separate red gradient</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">finder</span>(<span class="text-green-400">"tl"</span>, {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stroke: <span class="text-green-400">"#be123c"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rounded: <span class="text-red-400">3.5</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gradient: { type: <span class="text-green-400">"linear"</span>, colors: [<span class="text-green-400">"#e11d48"</span>, <span class="text-green-400">"#f43f5e"</span>], angle: <span class="text-red-400">90</span> }<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">svg</span>(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic">// Render to SVG string</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Output Formats -->
+    <section id="qr-output" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">03</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">PNG & SVG Outputs</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Render codes as highly scalable SVG markup (perfect for frontend displays) or binary PNG byte arrays (ideal for file servers or image responses).
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">response-type.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// 1. Serve SVG string directly</span><br>
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/qr/vector"</span>).<span class="text-yellow-400">handle</span>((<span class="text-orange-400">res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">code</span> = <span class="text-blue-400">qrcode</span>.<span class="text-yellow-400">napas</span>(<span class="text-blue-400">payment</span>).<span class="text-yellow-400">svg</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">svg</span>(<span class="text-blue-400">code</span>);<br>
+                    });<br>
+                    <br>
+                    <span class="text-slate-500 italic">// 2. Serve PNG bytes as image stream</span><br>
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/qr/raster"</span>).<span class="text-yellow-400">handle</span>((<span class="text-orange-400">res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">pngBytes</span> = <span class="text-blue-400">qrcode</span>.<span class="text-yellow-400">napas</span>(<span class="text-blue-400">payment</span>).<span class="text-yellow-400">size</span>(<span class="text-red-400">400</span>).<span class="text-yellow-400">png</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">image</span>(<span class="text-blue-400">pngBytes</span>);<br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Bank BIN Reference Table -->
+    <section id="bank-bins" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">04</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Bank BIN Reference Table</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Common Vietnamese bank codes required for structural Napas validation payloads.
+            </p>
+
+            <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-[#090c15] p-6 shadow-2xl mb-8">
+                <table class="w-full text-left font-mono text-sm text-slate-300">
+                    <thead>
+                        <tr class="border-b border-slate-800 text-slate-500 font-bold">
+                            <th class="pb-3 pr-4">Bank Name</th>
+                            <th class="pb-3 pr-4">BIN Code</th>
+                            <th class="pb-3">Transfer Type</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/40">
+                        <tr>
+                            <td class="py-3 pr-4 text-brand font-bold">Vietcombank (VCB)</td>
+                            <td class="py-3 pr-4">970436</td>
+                            <td class="py-3 text-green-400">Instant / Napas247</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-brand font-bold">VietinBank (VTB)</td>
+                            <td class="py-3 pr-4">970415</td>
+                            <td class="py-3 text-green-400">Instant / Napas247</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-brand font-bold">Techcombank (TCB)</td>
+                            <td class="py-3 pr-4">970407</td>
+                            <td class="py-3 text-green-400">Instant / Napas247</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-brand font-bold">MBBank (MB)</td>
+                            <td class="py-3 pr-4">970422</td>
+                            <td class="py-3 text-green-400">Instant / Napas247</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-brand font-bold">BIDV</td>
+                            <td class="py-3 pr-4">970418</td>
+                            <td class="py-3 text-green-400">Instant / Napas247</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Dynamic Payment Tutorial -->
+    <section id="dynamic-payment" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">05</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Dynamic Payment Tutorial</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Build a dynamic checkout screen that accepts payment quantities via URL queries and generates payment vector codes on the fly.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">checkout.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/checkout"</span>).<span class="text-yellow-400">handle</span>((<span class="text-orange-400">req, res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">amount</span> = <span class="text-orange-400">req</span>.<span class="text-yellow-400">query</span>(<span class="text-green-400">"amount"</span>).<span class="text-yellow-400">text</span>() || <span class="text-green-400">"10000"</span>;<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">payPayload</span> = <span class="text-blue-400">napas</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">bank</span>(<span class="text-green-400">"970415"</span>, <span class="text-green-400">"123456789"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">amount</span>(<span class="text-blue-400">amount</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">info</span>(<span class="text-green-400">"Order payment"</span>);<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">qrSvg</span> = <span class="text-blue-400">qrcode</span>.<span class="text-yellow-400">napas</span>(<span class="text-blue-400">payPayload</span>).<span class="text-yellow-400">svg</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">svg</span>(<span class="text-blue-400">qrSvg</span>);<br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

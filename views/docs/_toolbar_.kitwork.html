@@ -1,23 +1,23 @@
-    <div class="sticky top-32">
-        <h3 class="font-black text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">On this page</h3>
-        <nav id="toc-nav">
-            <ul id="dynamic-toc" class="space-y-4 border-l border-gray-200 dark:border-gray-800 relative">
-                <!-- Mục lục tự động -->
-            </ul>
-        </nav>
+<div class="sticky top-32">
+    <h3 class="font-black text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-4">On this page</h3>
+    <nav id="toc-nav">
+        <ul id="dynamic-toc" class="space-y-4 border-l border-gray-200 dark:border-gray-800 relative">
+            <!-- Mục lục tự động -->
+        </ul>
+    </nav>
 
-        <div class="mt-12 p-6 bg-gray-50 dark:bg-gray-800/40 rounded-2xl border border-gray-200 dark:border-gray-700">
-            <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-2">Need help?</h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-4">Can't find what you're looking for?
-                Join our Discord community.</p>
-            <a href="#"
-                class="text-xs font-black text-brand uppercase tracking-widest hover:underline transition-all">Join
-                Discord &rarr;</a>
-        </div>
+    <div class="mt-12 p-6 bg-gray-50 dark:bg-gray-800/40 rounded-2xl border border-gray-200 dark:border-gray-700">
+        <h4 class="font-bold text-sm text-gray-900 dark:text-white mb-2">Need help?</h4>
+        <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-4">Can't find what you're looking for?
+            Join our community.</p>
+        <a href="https://www.facebook.com/groups/797975753396180" target="_blank"
+            class="text-xs font-black text-brand uppercase tracking-widest hover:underline transition-all">Join
+            community &rarr;</a>
     </div>
+</div>
 
 <script>
-    (function() {
+    (function () {
         let isManualScrolling = false;
 
         function updateActiveLink(id) {
@@ -42,7 +42,7 @@
             if (!tocContainer || !contentArea) return;
 
             tocContainer.innerHTML = '';
-            
+
             const headings = Array.from(contentArea.querySelectorAll('h2, h3')).filter(h => {
                 return !h.closest('.lg\\:order-1') && !h.closest('.order-3');
             });
@@ -56,25 +56,25 @@
                 if (!heading.id) heading.id = 'section-' + index;
                 const li = document.createElement('li');
                 li.className = heading.tagName.toLowerCase() === 'h3' ? 'pl-8' : 'pl-4';
-                
+
                 const a = document.createElement('a');
                 a.href = '#' + heading.id;
                 a.className = 'toc-link block text-gray-500 dark:text-gray-400 hover:text-brand text-xs font-medium transition-all';
                 a.textContent = heading.textContent.trim();
-                
+
                 // Click handler
                 a.addEventListener('click', (e) => {
                     e.preventDefault();
                     isManualScrolling = true; // Tạm dừng observer khi click
-                    
+
                     const target = document.getElementById(heading.id);
                     if (target) {
                         const top = target.getBoundingClientRect().top + window.pageYOffset - 120;
                         window.scrollTo({ top, behavior: 'smooth' });
-                        
+
                         updateActiveLink(heading.id);
                         history.pushState(null, null, '#' + heading.id);
-                        
+
                         // Kích hoạt lại observer sau khi cuộn xong
                         setTimeout(() => { isManualScrolling = false; }, 800);
                     }
@@ -98,14 +98,64 @@
             headings.forEach(h => observer.observe(h));
         }
 
+        // Copy Code Buttons
+        function initCopyButtons() {
+            document.querySelectorAll('.code-content').forEach(codeBlock => {
+                const container = codeBlock.parentElement;
+                const header = container.querySelector('div.absolute.top-0');
+                if (!header || container.querySelector('.copy-btn')) return;
+
+                const btn = document.createElement('button');
+                btn.className = 'copy-btn text-[10px] font-mono font-bold text-slate-500 hover:text-brand transition-colors uppercase tracking-wider mr-2 flex items-center gap-1.5 focus:outline-none';
+                btn.innerHTML = `
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                    </svg>
+                    Copy
+                `;
+
+                btn.addEventListener('click', () => {
+                    let text = codeBlock.innerText || codeBlock.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        btn.innerHTML = `
+                            <svg class="w-3.5 h-3.5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-green-400">Copied!</span>
+                        `;
+                        setTimeout(() => {
+                            btn.innerHTML = `
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                                </svg>
+                                Copy
+                            `;
+                        }, 2000);
+                    });
+                });
+
+                const rightMeta = header.querySelector('.flex.items-center.gap-2');
+                if (rightMeta) {
+                    rightMeta.insertBefore(btn, rightMeta.firstChild);
+                }
+            });
+        }
+
         // Chạy khởi tạo
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTOC);
+            document.addEventListener('DOMContentLoaded', () => {
+                initTOC();
+                initCopyButtons();
+            });
         } else {
             initTOC();
+            initCopyButtons();
         }
-        
+
         // Chạy lại sau 1s để chắc chắn nội dung đã ổn định
-        setTimeout(initTOC, 1000);
+        setTimeout(() => {
+            initTOC();
+            initCopyButtons();
+        }, 1000);
     })();
 </script>

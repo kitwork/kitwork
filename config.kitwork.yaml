@@ -1,4 +1,4 @@
-port: 8086
+port: 8080
 root: "."
 hot_reload: true
 domains: 

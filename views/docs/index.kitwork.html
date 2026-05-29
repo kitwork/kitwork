@@ -9,16 +9,38 @@
         {{ _navbar_ }}
     </header>
 
-    <main class="max-w-[1400px] mx-auto p-6 md:p-18 pt-24 md:pt24">
+    <main class="max-w-[1400px] mx-auto p-6 md:p-18 pt-24 md:pt-24">
+        <!-- Backdrop overlay on Mobile -->
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/50 dark:bg-black/60 backdrop-blur-sm z-40 hidden lg:hidden transition-all duration-300"></div>
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-            <!-- Tự động nạp Sidebar -->
-            <aside class="lg:col-span-3 order-2 lg:order-1">
+            <!-- Tự động nạp Sidebar (Drawer on mobile, inline on desktop) -->
+            <aside id="docs-sidebar" class="fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-[#0f172a] p-6 border-r border-gray-200 dark:border-slate-800/80 transform -translate-x-full transition-all duration-300 ease-in-out max-lg:overflow-y-auto lg:relative lg:translate-x-0 lg:w-auto lg:p-0 lg:border-0 lg:z-0 lg:bg-transparent lg:inset-auto lg:col-span-3 lg:overflow-visible lg:transition-none order-2 lg:order-1">
+                <!-- Close Button on Mobile -->
+                <div class="flex justify-between items-center mb-6 lg:hidden border-b border-gray-100 dark:border-slate-800/50 pb-4">
+                    <span class="text-xs font-black text-brand uppercase tracking-widest">Navigation</span>
+                    <button id="mobile-sidebar-close" class="text-gray-400 hover:text-brand transition-colors focus:outline-none">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
                 {{ _sidebar_ }}
             </aside>
 
             <!-- Nội dung chính của trang -->
             <section class="lg:col-span-6 order-1 lg:order-2 relative docs-content">
+                <!-- Mobile Docs Sub-header -->
+                <div class="lg:hidden sticky top-[72px] z-30 bg-[#f8fafc]/80 dark:bg-[#0f172a]/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-800/80 px-4 py-3 flex justify-between items-center -mx-4 mb-8 rounded-xl shadow-sm">
+                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Documentation</span>
+                    <button id="mobile-sidebar-toggle" class="flex items-center gap-2 text-xs font-black text-brand uppercase tracking-widest focus:outline-none hover:text-brand-light transition-colors">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        Menu
+                    </button>
+                </div>
                 {{ _page_ }}
             </section>
 
@@ -33,6 +55,39 @@
     <footer>
         {{ _footer_ }}
     </footer>
+
+    <!-- Mobile Sidebar Controller Script -->
+    <script>
+        (function() {
+            const toggle = document.getElementById('mobile-sidebar-toggle');
+            const close = document.getElementById('mobile-sidebar-close');
+            const sidebar = document.getElementById('docs-sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+
+            if (!toggle || !sidebar) return;
+
+            function openSidebar() {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }
+
+            function closeSidebar() {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            toggle.addEventListener('click', openSidebar);
+            if (close) close.addEventListener('click', closeSidebar);
+            backdrop.addEventListener('click', closeSidebar);
+
+            // Close when clicking nav links
+            sidebar.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeSidebar);
+            });
+        })();
+    </script>
 </body>
 
 </html>

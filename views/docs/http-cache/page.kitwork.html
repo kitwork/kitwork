@@ -1,0 +1,125 @@
+<!-- Ambient glowing light -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+<!-- Hero Header -->
+<div class="mb-24 relative z-10">
+    <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+        HTTP & Caching Layer
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
+        HTTP & <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">Cache</span>
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
+        Communicate with external REST services via the high-speed compiled HTTP driver, and save latency with declarative route caching.
+    </p>
+</div>
+
+<div class="space-y-32">
+    <!-- Section 1: HTTP Client -->
+    <section id="http-client" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">HTTP Client</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Fetch remote resources using the native <code>http</code> module. Parse response payloads directly into JSON models.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">fetch.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-purple-400">import</span> { <span class="text-blue-400">http</span> } <span class="text-purple-400">from</span> <span class="text-green-400">'kitwork'</span>;<br>
+                    <br>
+                    <span class="text-purple-400">const</span> <span class="text-blue-400">fetch</span> = <span class="text-blue-400">http</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"https://api.external.com/data"</span>);<br>
+                    <br>
+                    <span class="text-purple-400">if</span> (<span class="text-blue-400">fetch</span>.<span class="text-blue-400">status</span> == <span class="text-red-400">200</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">body</span> = <span class="text-blue-400">fetch</span>.<span class="text-yellow-400">json</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">log</span>.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"Parsed API response: "</span> + <span class="text-blue-400">body</span>.<span class="text-blue-400">message</span>);<br>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Declarative Caching -->
+    <section id="route-caching" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Declarative Caching</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Speed up heavy operations or external database reads by attaching a <code>cache</code> directive directly to your route declarations.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">cache.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// Cache responses for 1 hour</span><br>
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/heavy-data"</span>).<span class="text-yellow-400">cache</span>(<span class="text-green-400">"1h"</span>).<span class="text-yellow-400">handle</span>((<span class="text-orange-400">res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">data</span> = <span class="text-blue-400">db</span>.<span class="text-yellow-400">table</span>(<span class="text-green-400">"analytics"</span>).<span class="text-yellow-400">list</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">json</span>(<span class="text-blue-400">data</span>);<br>
+                    });
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Route Flow Hooks -->
+    <section id="flow-hooks" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">03</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Route Flow Hooks</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Define success/failure hooks using <code>.then()</code> and <code>.catch()</code> methods to implement clean logging, error metrics, and response monitors.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">hooks.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/external-sync"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">catch</span>(() => <span class="text-blue-400">log</span>.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"External sync failed"</span>))<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">then</span>(() => <span class="text-blue-400">log</span>.<span class="text-yellow-400">Print</span>(<span class="text-green-400">"External sync succeeded"</span>))<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-yellow-400">handle</span>((<span class="text-orange-400">res</span>) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> <span class="text-blue-400">fetch</span> = <span class="text-blue-400">http</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"https://api.external.com/sync"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-orange-400">res</span>.<span class="text-yellow-400">json</span>(<span class="text-blue-400">fetch</span>.<span class="text-yellow-400">json</span>());<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;});
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

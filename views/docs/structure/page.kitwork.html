@@ -1,0 +1,137 @@
+<!-- Ambient glowing light -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+<!-- Hero Header -->
+<div class="mb-24 relative z-10">
+    <div class="inline-flex items-center gap-3 bg-brand/10 text-brand font-black text-[10px] py-2 px-4 rounded-full border border-brand/20 uppercase tracking-[3px] mb-8">
+        <span class="w-2 h-2 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+        Architecture Strategy
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-[1.1]">
+        Directory <span class="bg-gradient-to-r from-brand-light to-brand bg-clip-text text-transparent">Structure</span>
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 text-xl leading-relaxed max-w-2xl font-medium">
+        Kitwork promotes a highly modular, decoupled application structure. Learn how configuration files, logic endpoints, and template folders fit together.
+    </p>
+</div>
+
+<div class="space-y-32">
+    <!-- Section 1: Standard Layout -->
+    <section id="standard-layout" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">01</div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Standard Layout</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                A typical Kitwork project structure contains the entrypoint logic script, configuration, client views, and static assets.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">folder-tree</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-brand">my-kitwork-app/</span><br>
+                    ├── <span class="text-blue-400">config.kitwork.yaml</span> &nbsp;&nbsp;<span class="text-slate-500 italic"># Engine server configuration</span><br>
+                    ├── <span class="text-blue-400">app.kitwork.js</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic"># Application routes & main handlers</span><br>
+                    ├── <span class="text-blue-400">helper.kitwork.js</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic"># Global Javascript helper utils</span><br>
+                    ├── <span class="text-brand">assets/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic"># Public CSS, JS, images, favicon</span><br>
+                    │   └── <span class="text-green-400">logo.png</span><br>
+                    └── <span class="text-brand">views/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500 italic"># Layout templates & view partials</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-green-400">_navbar_.kitwork.html</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-green-400">_footer_.kitwork.html</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-green-400">page.kitwork.html</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="text-brand">docs/</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="text-green-400">page.kitwork.html</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: YAML Configuration Schema -->
+    <section id="config-schema" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">02</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">YAML Config Schema</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Configure your server settings, hot reload behaviors, simulated domains, and system database connections in <code>config.kitwork.yaml</code>.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">config.kitwork.yaml</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-blue-400">port</span>: <span class="text-red-400">8080</span><br>
+                    <span class="text-blue-400">root</span>: <span class="text-green-400">"tenants"</span><br>
+                    <span class="text-blue-400">hot_reload</span>: <span class="text-purple-400">true</span><br>
+                    <span class="text-blue-400">hostname</span>: <span class="text-green-400">"kitwork.vn"</span><br>
+                    <span class="text-blue-400">domains</span>:<br>
+                    &nbsp;&nbsp;- <span class="text-green-400">kitwork.vn</span><br>
+                    &nbsp;&nbsp;- <span class="text-green-400">kitwork.io</span><br>
+                    <br>
+                    <span class="text-blue-400">database</span>:<br>
+                    &nbsp;&nbsp;<span class="text-blue-400">type</span>: <span class="text-green-400">"postgres"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">host</span>: <span class="text-green-400">"127.0.0.1"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">port</span>: <span class="text-red-400">5432</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">user</span>: <span class="text-green-400">"postgres"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">password</span>: <span class="text-green-400">"secret"</span><br>
+                    &nbsp;&nbsp;<span class="text-blue-400">name</span>: <span class="text-green-400">"kitdb"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Serving Assets -->
+    <section id="serving-assets" class="relative scroll-mt-32">
+        <div class="absolute -right-12 top-0 font-black text-[12rem] leading-none text-gray-100 dark:text-white/5 select-none -z-10">03</div>
+
+        <div class="relative z-10">
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white mb-8">Serving Static Files</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 leading-relaxed text-xl max-w-xl">
+                Define explicit routes to map files or entire asset folders to the output stream.
+            </p>
+
+            <!-- Premium Terminal -->
+            <div class="bg-[#090c15] border border-slate-200 dark:border-slate-800/80 hover:border-brand/40 rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500 shadow-2xl group">
+                <div class="absolute top-0 left-0 right-0 flex justify-between items-center bg-[#0f1322] border-b border-slate-800/40 px-5 py-3">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand outline outline-1 outline-brand outline-offset-2"></span>
+                        <span class="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">assets.js</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[14px] leading-[1.8] code-content mt-8 text-slate-300">
+                    <span class="text-slate-500 italic">// Serve individual static files</span><br>
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/favicon.ico"</span>).<span class="text-yellow-400">file</span>(<span class="text-green-400">"/assets/favicon.ico"</span>);<br>
+                    <br>
+                    <span class="text-slate-500 italic">// Serve directories using wildcard paths</span><br>
+                    <span class="text-blue-400">router</span>.<span class="text-yellow-400">get</span>(<span class="text-green-400">"/assets/*"</span>).<span class="text-yellow-400">directory</span>(<span class="text-green-400">"./assets/*"</span>);
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
