@@ -1,0 +1,32 @@
+Kitwork Starter
+Copyright (c) 2026 Huỳnh Nhân Quốc
+
+This starter template is licensed under the Apache License 2.0 (see LICENSE).
+That covers the template: main.go, app.kitwork.js, config.kitwork.yaml, views/
+and assets/. Take it, change it, build a closed product with it.
+
+The template is not the engine.
+
+  github.com/kitwork/engine  —  GNU Affero General Public License v3.0
+
+Building this template links that engine, so the resulting BINARY is covered by
+the AGPL, not by Apache 2.0. If you distribute a build, or offer a modified
+engine to users over a network, the AGPL's terms apply to the engine portion.
+Corresponding source: https://github.com/kitwork/engine
+
+What the AGPL does NOT reach: the applications you run on the engine. Your
+.kitwork.js modules, templates, assets and everything the engine generates from
+them are separate works. See:
+https://github.com/kitwork/engine/blob/master/LICENSE-EXCEPTION.md
+
+A commercial licence is available for proprietary deployments that cannot ship
+AGPL software: support@kitwork.org
+
+---
+
+Historical note: compiled engine binaries (kitwork, kitwork.exe,
+kitwork_test.exe — 92 MB) were committed to this repository and distributed
+under an Apache 2.0 LICENSE file, which did not describe the terms those
+binaries actually carry. They have been removed from the working tree. They
+remain in git history; removing them from history requires a rewrite, which has
+not been done.

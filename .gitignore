@@ -3,14 +3,19 @@
 /build/
 /dist/
 
-# Go
-# *.exe
-# *.exe~
-# *.dll
-# *.so
-# *.dylib
-# *.test
-# *.out
+# Go — build artifacts. These were commented out once, and three compiled
+# engine binaries (92 MB) reached the repository as a result.
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# The compiled engine itself (Linux build has no extension)
+/kitwork
+/kitwork_test
 
 # Dependency directories
 /vendor/

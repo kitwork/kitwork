@@ -204,5 +204,12 @@ router.get("/background").handle((req, res) => {
 
 ---
 
-Released under Apache 2.0 License.
+**Licensing.** This template is Apache 2.0 — take it and build whatever you like.
+The engine it links, [kitwork/engine](https://github.com/kitwork/engine), is AGPL-3.0, so a
+**binary you build from this template** carries AGPL terms rather than Apache. Your applications are
+not covered either way: see the
+[Application Exception](https://github.com/kitwork/engine/blob/master/LICENSE-EXCEPTION.md).
+A commercial licence is available for proprietary deployments — support@kitwork.org. Details in
+[`NOTICE`](NOTICE).
+
 Support development: [Sponsor Kitwork](https://github.com/sponsors/huynhnhanquoc)
